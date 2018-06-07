@@ -3,7 +3,7 @@
   
     <entry>
       <title>Next Theme Tutorial</title>
-      <url>/tutorial/2017/07/20/next-tutorial/</url>
+      <url>/test/2017/07/20/next-tutorial/</url>
       <content type="text">
   NexT is a high quality elegant Jekyll theme ported from Hexo Next. It is crafted from scratch, with love.
 
@@ -190,73 +190,7 @@ Browser support
 </content>
       <categories>
         
-          <category> tutorial </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title>Gallery Post</title>
-      <url>/photo/2014/11/18/gallery-post/</url>
-      <content type="text">Nunc dignissim volutpat enim, non sollicitudin purus dignissim id. Nam sit amet urna eu velit lacinia eleifend. Proin auctor rhoncus ligula nec aliquet. Donec sodales molestie lacinia. Curabitur dictum faucibus urna at convallis. Aliquam in lectus at urna rutrum porta. In lacus arcu, molestie ut vestibulum ut, rhoncus sed eros. Sed et elit vitae risus pretium consectetur vel in mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tempus turpis quis lectus rhoncus adipiscing. Proin pulvinar placerat suscipit. Maecenas imperdiet, quam vitae varius auctor, enim mauris vulputate sapien, nec laoreet neque diam non quam.
-
-
-
-
-
-Etiam luctus mauris at mi sollicitudin quis malesuada nibh porttitor. Vestibulum non dapibus magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin feugiat hendrerit viverra. Phasellus sit amet nunc mauris, eu ultricies tellus. Sed a mi tortor, eleifend varius erat. Proin consectetur molestie tortor eu gravida. Cras placerat orci id arcu tristique ut rutrum justo pulvinar. Maecenas lacinia fringilla diam non bibendum. Aenean vel viverra turpis. Integer ut leo nisi. Pellentesque vehicula quam ut sapien convallis consequat. Aliquam ut arcu purus, eget tempor purus. Integer eu tellus quis erat tristique gravida eu vel lorem.
-</content>
-      <categories>
-        
-          <category> Photo </category>
-        
-      </categories>
-      <tags>
-        
-          <tag> consectetur </tag>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title>Images</title>
-      <url>/2013/12/27/images/</url>
-      <content type="text">This is a image test post.
-
-
-
-
-
-
-
-
-</content>
-      <categories>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title>Excerpts</title>
-      <url>/2013/12/25/excerpts/</url>
-      <content type="text">The following contents should be invisible in home/archive page.
-
-
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget urna vitae velit eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Aliquam eleifend dolor vitae libero pharetra adipiscing. Etiam adipiscing dolor a quam tempor, eu convallis nulla varius. Aliquam sollicitudin risus a porta aliquam. Ut nec velit dolor. Proin eget leo lobortis, aliquam est sed, mollis mauris. Fusce vitae leo pretium massa accumsan condimentum. Fusce malesuada gravida lectus vel vulputate. Donec bibendum porta nibh ut aliquam.
-
-Sed lorem felis, congue non fringilla eu, aliquam eu eros. Curabitur orci libero, mollis sed semper vitae, adipiscing in lectus. Aenean non egestas odio. Donec sollicitudin nisi quis lorem gravida, in pharetra mauris fringilla. Duis sit amet faucibus dolor, id aliquam neque. In egestas, odio gravida tempor dictum, mauris felis faucibus purus, sit amet commodo lacus diam vitae est. Ut ut quam eget massa semper sodales. Aenean non ipsum cursus, blandit lectus in, ornare odio. Curabitur ultrices porttitor vulputate.
-</content>
-      <categories>
+          <category> test </category>
         
       </categories>
       <tags>
@@ -267,7 +201,7 @@ Sed lorem felis, congue non fringilla eu, aliquam eu eros. Curabitur orci libero
   
     <entry>
       <title>Block</title>
-      <url>/foo/2013/12/25/block/</url>
+      <url>/test/2013/12/25/block/</url>
       <content type="text">This post is used for testing tag plugins. See docs for more info.
 
 Block Quote
@@ -318,7 +252,7 @@ Gist
 </content>
       <categories>
         
-          <category> Foo </category>
+          <category> test </category>
         
       </categories>
       <tags>
@@ -329,7 +263,7 @@ Gist
   
     <entry>
       <title>中文測試</title>
-      <url>/test/test/2013/12/25/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/</url>
+      <url>/test/2013/12/25/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/</url>
       <content type="text">This is a Chinese test post.
 
 善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。
@@ -348,45 +282,7 @@ From 亂數假文產生器 - Chinese Lorem Ipsum
 </content>
       <categories>
         
-          <category> test/test </category>
-        
-      </categories>
-      <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo turpis, tincidunt ac convallis id.</title>
-      <url>/foo/2013/12/25/long-title/</url>
-      <content type="text">This post has a long title. Make sure the title displayed right.
-</content>
-      <categories>
-        
-          <category> Foo </category>
-        
-      </categories>
-      <tags>
-        
-          <tag> Foo </tag>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title>Categories</title>
-      <url>/foo/bar/baz/2013/12/25/categories/</url>
-      <content type="text">This post contains 3 categories. Make sure your theme can display all of the categories.
-</content>
-      <categories>
-        
-          <category> Foo </category>
-        
-          <category> Bar </category>
-        
-          <category> Baz </category>
+          <category> test </category>
         
       </categories>
       <tags>
@@ -397,37 +293,15 @@ From 亂數假文產生器 - Chinese Lorem Ipsum
   
     <entry>
       <title>Link Post</title>
-      <url>/foo/2013/12/25/link-post/</url>
+      <url>/test/2013/12/25/link-post/</url>
       <content type="text">This is a link post. Clicking on the link should open Google in a new tab or window.
 </content>
       <categories>
         
-          <category> Foo </category>
+          <category> test </category>
         
       </categories>
       <tags>
-        
-      </tags>
-      <tags></tags>
-    </entry>
-  
-    <entry>
-      <title>Tags</title>
-      <url>/foo/2013/12/25/tags/</url>
-      <content type="text">This post contains 3 tags. Make sure your theme can display all of the tags.
-</content>
-      <categories>
-        
-          <category> Foo </category>
-        
-      </categories>
-      <tags>
-        
-          <tag> Foo </tag>
-        
-          <tag> Bar </tag>
-        
-          <tag> Baz </tag>
         
       </tags>
       <tags></tags>
@@ -435,7 +309,7 @@ From 亂數假文產生器 - Chinese Lorem Ipsum
   
     <entry>
       <title>Elements</title>
-      <url>/foo/2013/12/25/elements/</url>
+      <url>/test/2013/12/25/elements/</url>
       <content type="text">The purpose of this post is to help you make sure all of HTML elements can display properly. If you use CSS reset, don’t forget to redefine the style by yourself.
 
 
@@ -523,10 +397,12 @@ Lorem superscript dolor subscript amet, consectetuer adipiscing elit. Nullam dig
 </content>
       <categories>
         
-          <category> Foo </category>
+          <category> test </category>
         
       </categories>
       <tags>
+        
+          <tag> elements </tag>
         
       </tags>
       <tags></tags>

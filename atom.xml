@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-06T18:43:02+08:00</updated><id>http://localhost:4000/</id><title type="html">WuJiaJing</title><subtitle>Because it is there.</subtitle><author><name>Emc2</name></author><entry><title type="html">Next Theme Tutorial</title><link href="http://localhost:4000/tutorial/2017/07/20/next-tutorial/" rel="alternate" type="text/html" title="Next Theme Tutorial" /><published>2017-07-20T00:00:00+08:00</published><updated>2017-07-20T00:00:00+08:00</updated><id>http://localhost:4000/tutorial/2017/07/20/next-tutorial</id><content type="html" xml:base="http://localhost:4000/tutorial/2017/07/20/next-tutorial/">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-07T09:48:20+08:00</updated><id>http://localhost:4000/</id><title type="html">WuJiaJing</title><subtitle>Because it is there.</subtitle><author><name>Emc2</name></author><entry><title type="html">Next Theme Tutorial</title><link href="http://localhost:4000/test/2017/07/20/next-tutorial/" rel="alternate" type="text/html" title="Next Theme Tutorial" /><published>2017-07-20T00:00:00+08:00</published><updated>2017-07-20T00:00:00+08:00</updated><id>http://localhost:4000/test/2017/07/20/next-tutorial</id><content type="html" xml:base="http://localhost:4000/test/2017/07/20/next-tutorial/">&lt;blockquote&gt;
   &lt;p&gt;NexT is a high quality elegant &lt;a href=&quot;https://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; theme ported from &lt;a href=&quot;https://github.com/iissnan/hexo-theme-next&quot;&gt;Hexo Next&lt;/a&gt;. It is crafted from scratch, with love.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -180,27 +180,7 @@ Next use &lt;code class=&quot;highlighter-rouge&quot;&gt;normal&lt;/code&gt; by 
 
 &lt;h2 id=&quot;browser-support&quot;&gt;Browser support&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://iissnan.com/nexus/next/browser-support.png&quot; alt=&quot;Browser support&quot; /&gt;&lt;/p&gt;</content><author><name>Emc2</name></author><summary type="html">NexT is a high quality elegant Jekyll theme ported from Hexo Next. It is crafted from scratch, with love. Live Preview Screenshots Desktop Sidebar Sidebar (Post details page) Mobile Installation Check whether you have Ruby 2.1.0 or higher installed: ruby --version Install Bundler: gem install bundler Clone Jacman theme: git clone https://github.com/Simpleyyt/jekyll-theme-next.git cd jekyll-theme-next Install Jekyll and other dependencies from the GitHub Pages gem: bundle install Run your Jekyll site locally: bundle exec jekyll server More Details：Setting up your GitHub Pages site locally with Jekyll Features Multiple languages support, including: English / Russian / French / German / Simplified Chinese / Traditional Chinese. Default language is English. language: en # language: zh-Hans # language: fr-FR # language: zh-hk # language: zh-tw # language: ru # language: de Set language field as following in site _config.yml to change to Chinese. language: zh-Hans Comment support. NexT has native support for DuoShuo and Disqus comment systems. Add the following snippets to your _config.yml: duoshuo: enable: true shortname: your-duoshuo-shortname OR disqus_shortname: your-disqus-shortname Social Media NexT can automatically add links to your Social Media accounts: social: GitHub: your-github-url Twitter: your-twitter-url Weibo: your-weibo-url DouBan: your-douban-url ZhiHu: your-zhihu-url Feed link. Show a feed link. Set rss field in theme’s _config.yml, as the following value: rss: false will totally disable feed link. rss: use sites’ feed link. This is the default option. Follow the installation instruction in the plugin’s README. After the configuration is done for this plugin, the feed link is ready too. rss: http://your-feed-url set specific feed link. Up to 5 code highlight themes built-in. NexT uses Tomorrow Theme with 5 themes for you to choose from. Next use normal by default. Have a preview about normal and night: Head over to Tomorrow Theme for more details. Configuration NexT comes with few configurations. # Menu configuration. menu: home: / archives: /archives # Favicon favicon: /favicon.ico # Avatar (put the image into next/source/images/) # can be any image format supported by web browsers (JPEG,PNG,GIF,SVG,..) avatar: /default_avatar.png # Code highlight theme # available: normal | night | night eighties | night blue | night bright highlight_theme: normal # Fancybox for image gallery fancybox: true # Specify the date when the site was setup since: 2013 Browser support</summary></entry><entry><title type="html">Gallery Post</title><link href="http://localhost:4000/photo/2014/11/18/gallery-post/" rel="alternate" type="text/html" title="Gallery Post" /><published>2014-11-18T23:45:20+08:00</published><updated>2014-11-18T23:45:20+08:00</updated><id>http://localhost:4000/photo/2014/11/18/gallery-post</id><content type="html" xml:base="http://localhost:4000/photo/2014/11/18/gallery-post/">&lt;p&gt;Nunc dignissim volutpat enim, non sollicitudin purus dignissim id. Nam sit amet urna eu velit lacinia eleifend. Proin auctor rhoncus ligula nec aliquet. Donec sodales molestie lacinia. Curabitur dictum faucibus urna at convallis. Aliquam in lectus at urna rutrum porta. In lacus arcu, molestie ut vestibulum ut, rhoncus sed eros. Sed et elit vitae risus pretium consectetur vel in mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tempus turpis quis lectus rhoncus adipiscing. Proin pulvinar placerat suscipit. Maecenas imperdiet, quam vitae varius auctor, enim mauris vulputate sapien, nec laoreet neque diam non quam.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/81b78497jw1emfgts2pt4j21hc0u0k1c.jpg&quot; alt=&quot;Wallbase - dgnfly (wallbase.cc/wallpaper/1384450)&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Etiam luctus mauris at mi sollicitudin quis malesuada nibh porttitor. Vestibulum non dapibus magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin feugiat hendrerit viverra. Phasellus sit amet nunc mauris, eu ultricies tellus. Sed a mi tortor, eleifend varius erat. Proin consectetur molestie tortor eu gravida. Cras placerat orci id arcu tristique ut rutrum justo pulvinar. Maecenas lacinia fringilla diam non bibendum. Aenean vel viverra turpis. Integer ut leo nisi. Pellentesque vehicula quam ut sapien convallis consequat. Aliquam ut arcu purus, eget tempor purus. Integer eu tellus quis erat tristique gravida eu vel lorem.&lt;/p&gt;</content><author><name>Emc2</name></author><category term="Photo" /><category term="consectetur" /><summary type="html">Nunc dignissim volutpat enim, non sollicitudin purus dignissim id. Nam sit amet urna eu velit lacinia eleifend. Proin auctor rhoncus ligula nec aliquet. Donec sodales molestie lacinia. Curabitur dictum faucibus urna at convallis. Aliquam in lectus at urna rutrum porta. In lacus arcu, molestie ut vestibulum ut, rhoncus sed eros. Sed et elit vitae risus pretium consectetur vel in mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tempus turpis quis lectus rhoncus adipiscing. Proin pulvinar placerat suscipit. Maecenas imperdiet, quam vitae varius auctor, enim mauris vulputate sapien, nec laoreet neque diam non quam.</summary></entry><entry><title type="html">Images</title><link href="http://localhost:4000/2013/12/27/images/" rel="alternate" type="text/html" title="Images" /><published>2013-12-27T06:46:49+08:00</published><updated>2013-12-27T06:46:49+08:00</updated><id>http://localhost:4000/2013/12/27/images</id><content type="html" xml:base="http://localhost:4000/2013/12/27/images/">&lt;p&gt;This is a image test post.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/mw690/81b78497jw1emfgwkasznj21hc0u0qb7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/mw690/81b78497jw1emfgwjrh2pj21hc0u01g3.jpg&quot; alt=&quot;Caption&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/mw690/81b78497jw1emfgwil5xkj21hc0u0tpm.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://placehold.it/350x150.jpg&quot; alt=&quot;Small Picture&quot; /&gt;&lt;/p&gt;</content><author><name>Emc2</name></author><summary type="html">This is a image test post.</summary></entry><entry><title type="html">Excerpts</title><link href="http://localhost:4000/2013/12/25/excerpts/" rel="alternate" type="text/html" title="Excerpts" /><published>2013-12-25T08:23:23+08:00</published><updated>2013-12-25T08:23:23+08:00</updated><id>http://localhost:4000/2013/12/25/excerpts</id><content type="html" xml:base="http://localhost:4000/2013/12/25/excerpts/">&lt;p&gt;The following contents should be invisible in home/archive page.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget urna vitae velit eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Aliquam eleifend dolor vitae libero pharetra adipiscing. Etiam adipiscing dolor a quam tempor, eu convallis nulla varius. Aliquam sollicitudin risus a porta aliquam. Ut nec velit dolor. Proin eget leo lobortis, aliquam est sed, mollis mauris. Fusce vitae leo pretium massa accumsan condimentum. Fusce malesuada gravida lectus vel vulputate. Donec bibendum porta nibh ut aliquam.&lt;/p&gt;
-
-&lt;p&gt;Sed lorem felis, congue non fringilla eu, aliquam eu eros. Curabitur orci libero, mollis sed semper vitae, adipiscing in lectus. Aenean non egestas odio. Donec sollicitudin nisi quis lorem gravida, in pharetra mauris fringilla. Duis sit amet faucibus dolor, id aliquam neque. In egestas, odio gravida tempor dictum, mauris felis faucibus purus, sit amet commodo lacus diam vitae est. Ut ut quam eget massa semper sodales. Aenean non ipsum cursus, blandit lectus in, ornare odio. Curabitur ultrices porttitor vulputate.&lt;/p&gt;</content><author><name>Emc2</name></author><summary type="html">The following contents should be invisible in home/archive page.</summary></entry><entry><title type="html">Block</title><link href="http://localhost:4000/foo/2013/12/25/block/" rel="alternate" type="text/html" title="Block" /><published>2013-12-25T08:14:39+08:00</published><updated>2013-12-25T08:14:39+08:00</updated><id>http://localhost:4000/foo/2013/12/25/block</id><content type="html" xml:base="http://localhost:4000/foo/2013/12/25/block/">&lt;p&gt;This post is used for testing tag plugins. See &lt;a href=&quot;http://zespia.tw/hexo/docs/tag-plugins.html&quot;&gt;docs&lt;/a&gt; for more info.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://iissnan.com/nexus/next/browser-support.png&quot; alt=&quot;Browser support&quot; /&gt;&lt;/p&gt;</content><author><name>Emc2</name></author><summary type="html">NexT is a high quality elegant Jekyll theme ported from Hexo Next. It is crafted from scratch, with love. Live Preview Screenshots Desktop Sidebar Sidebar (Post details page) Mobile Installation Check whether you have Ruby 2.1.0 or higher installed: ruby --version Install Bundler: gem install bundler Clone Jacman theme: git clone https://github.com/Simpleyyt/jekyll-theme-next.git cd jekyll-theme-next Install Jekyll and other dependencies from the GitHub Pages gem: bundle install Run your Jekyll site locally: bundle exec jekyll server More Details：Setting up your GitHub Pages site locally with Jekyll Features Multiple languages support, including: English / Russian / French / German / Simplified Chinese / Traditional Chinese. Default language is English. language: en # language: zh-Hans # language: fr-FR # language: zh-hk # language: zh-tw # language: ru # language: de Set language field as following in site _config.yml to change to Chinese. language: zh-Hans Comment support. NexT has native support for DuoShuo and Disqus comment systems. Add the following snippets to your _config.yml: duoshuo: enable: true shortname: your-duoshuo-shortname OR disqus_shortname: your-disqus-shortname Social Media NexT can automatically add links to your Social Media accounts: social: GitHub: your-github-url Twitter: your-twitter-url Weibo: your-weibo-url DouBan: your-douban-url ZhiHu: your-zhihu-url Feed link. Show a feed link. Set rss field in theme’s _config.yml, as the following value: rss: false will totally disable feed link. rss: use sites’ feed link. This is the default option. Follow the installation instruction in the plugin’s README. After the configuration is done for this plugin, the feed link is ready too. rss: http://your-feed-url set specific feed link. Up to 5 code highlight themes built-in. NexT uses Tomorrow Theme with 5 themes for you to choose from. Next use normal by default. Have a preview about normal and night: Head over to Tomorrow Theme for more details. Configuration NexT comes with few configurations. # Menu configuration. menu: home: / archives: /archives # Favicon favicon: /favicon.ico # Avatar (put the image into next/source/images/) # can be any image format supported by web browsers (JPEG,PNG,GIF,SVG,..) avatar: /default_avatar.png # Code highlight theme # available: normal | night | night eighties | night blue | night bright highlight_theme: normal # Fancybox for image gallery fancybox: true # Specify the date when the site was setup since: 2013 Browser support</summary></entry><entry><title type="html">Block</title><link href="http://localhost:4000/test/2013/12/25/block/" rel="alternate" type="text/html" title="Block" /><published>2013-12-25T08:14:39+08:00</published><updated>2013-12-25T08:14:39+08:00</updated><id>http://localhost:4000/test/2013/12/25/block</id><content type="html" xml:base="http://localhost:4000/test/2013/12/25/block/">&lt;p&gt;This post is used for testing tag plugins. See &lt;a href=&quot;http://zespia.tw/hexo/docs/tag-plugins.html&quot;&gt;docs&lt;/a&gt; for more info.&lt;/p&gt;
 
 &lt;h2 id=&quot;block-quote&quot;&gt;Block Quote&lt;/h2&gt;
 
@@ -245,7 +225,7 @@ Next use &lt;code class=&quot;highlighter-rouge&quot;&gt;normal&lt;/code&gt; by 
 
 &lt;h3 id=&quot;gist&quot;&gt;Gist&lt;/h3&gt;
 
-&lt;script src=&quot;https://gist.github.com/996818.js&quot;&gt; &lt;/script&gt;</content><author><name>Emc2</name></author><summary type="html">This post is used for testing tag plugins. See docs for more info.</summary></entry><entry><title type="html">中文測試</title><link href="http://localhost:4000/test/test/2013/12/25/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/" rel="alternate" type="text/html" title="中文測試" /><published>2013-12-25T07:31:30+08:00</published><updated>2013-12-25T07:31:30+08:00</updated><id>http://localhost:4000/test/test/2013/12/25/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6</id><content type="html" xml:base="http://localhost:4000/test/test/2013/12/25/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/">&lt;p&gt;This is a Chinese test post.&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/996818.js&quot;&gt; &lt;/script&gt;</content><author><name>Emc2</name></author><summary type="html">This post is used for testing tag plugins. See docs for more info.</summary></entry><entry><title type="html">中文測試</title><link href="http://localhost:4000/test/2013/12/25/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/" rel="alternate" type="text/html" title="中文測試" /><published>2013-12-25T07:31:30+08:00</published><updated>2013-12-25T07:31:30+08:00</updated><id>http://localhost:4000/test/2013/12/25/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6</id><content type="html" xml:base="http://localhost:4000/test/2013/12/25/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/">&lt;p&gt;This is a Chinese test post.&lt;/p&gt;
 
 &lt;p&gt;善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。&lt;/p&gt;
 
@@ -259,4 +239,87 @@ Next use &lt;code class=&quot;highlighter-rouge&quot;&gt;normal&lt;/code&gt; by 
   &lt;p&gt;工步他始能詩的，裝進分星海演意學值例道……於財型目古香亮自和這乎？化經溫詩。只賽嚴大一主價世哥受的沒有中年即病行金拉麼河。主小路了種就小為廣不？&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;em&gt;From &lt;a href=&quot;http://www.richyli.com/tool/loremipsum/&quot;&gt;亂數假文產生器 - Chinese Lorem Ipsum&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Emc2</name></author><summary type="html">This is a Chinese test post.</summary></entry><entry><title type="html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo turpis, tincidunt ac convallis id.</title><link href="http://localhost:4000/foo/2013/12/25/long-title/" rel="alternate" type="text/html" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo turpis, tincidunt ac convallis id." /><published>2013-12-25T07:31:06+08:00</published><updated>2013-12-25T07:31:06+08:00</updated><id>http://localhost:4000/foo/2013/12/25/long-title</id><content type="html" xml:base="http://localhost:4000/foo/2013/12/25/long-title/">&lt;p&gt;This post has a long title. Make sure the title displayed right.&lt;/p&gt;</content><author><name>Emc2</name></author><category term="Foo" /><summary type="html">This post has a long title. Make sure the title displayed right.</summary></entry><entry><title type="html">Categories</title><link href="http://localhost:4000/foo/bar/baz/2013/12/25/categories/" rel="alternate" type="text/html" title="Categories" /><published>2013-12-25T07:30:09+08:00</published><updated>2013-12-25T07:30:09+08:00</updated><id>http://localhost:4000/foo/bar/baz/2013/12/25/categories</id><content type="html" xml:base="http://localhost:4000/foo/bar/baz/2013/12/25/categories/">&lt;p&gt;This post contains 3 categories. Make sure your theme can display all of the categories.&lt;/p&gt;</content><author><name>Emc2</name></author><summary type="html">This post contains 3 categories. Make sure your theme can display all of the categories.</summary></entry><entry><title type="html">Link Post</title><link href="http://localhost:4000/foo/2013/12/25/link-post/" rel="alternate" type="text/html" title="Link Post" /><published>2013-12-25T07:30:04+08:00</published><updated>2013-12-25T07:30:04+08:00</updated><id>http://localhost:4000/foo/2013/12/25/link-post</id><content type="html" xml:base="http://localhost:4000/foo/2013/12/25/link-post/">&lt;p&gt;This is a link post. Clicking on the link should open &lt;a href=&quot;http://www.google.com/&quot;&gt;Google&lt;/a&gt; in a new tab or window.&lt;/p&gt;</content><author><name>Emc2</name></author><summary type="html">This is a link post. Clicking on the link should open Google in a new tab or window.</summary></entry><entry><title type="html">Tags</title><link href="http://localhost:4000/foo/2013/12/25/tags/" rel="alternate" type="text/html" title="Tags" /><published>2013-12-25T07:29:53+08:00</published><updated>2013-12-25T07:29:53+08:00</updated><id>http://localhost:4000/foo/2013/12/25/tags</id><content type="html" xml:base="http://localhost:4000/foo/2013/12/25/tags/">&lt;p&gt;This post contains 3 tags. Make sure your theme can display all of the tags.&lt;/p&gt;</content><author><name>Emc2</name></author><category term="Foo" /><category term="Bar" /><category term="Baz" /><summary type="html">This post contains 3 tags. Make sure your theme can display all of the tags.</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;From &lt;a href=&quot;http://www.richyli.com/tool/loremipsum/&quot;&gt;亂數假文產生器 - Chinese Lorem Ipsum&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</content><author><name>Emc2</name></author><summary type="html">This is a Chinese test post.</summary></entry><entry><title type="html">Link Post</title><link href="http://localhost:4000/test/2013/12/25/link-post/" rel="alternate" type="text/html" title="Link Post" /><published>2013-12-25T07:30:04+08:00</published><updated>2013-12-25T07:30:04+08:00</updated><id>http://localhost:4000/test/2013/12/25/link-post</id><content type="html" xml:base="http://localhost:4000/test/2013/12/25/link-post/">&lt;p&gt;This is a link post. Clicking on the link should open &lt;a href=&quot;http://www.google.com/&quot;&gt;Google&lt;/a&gt; in a new tab or window.&lt;/p&gt;</content><author><name>Emc2</name></author><summary type="html">This is a link post. Clicking on the link should open Google in a new tab or window.</summary></entry><entry><title type="html">Elements</title><link href="http://localhost:4000/test/2013/12/25/elements/" rel="alternate" type="text/html" title="Elements" /><published>2013-12-25T07:29:08+08:00</published><updated>2013-12-25T07:29:08+08:00</updated><id>http://localhost:4000/test/2013/12/25/elements</id><content type="html" xml:base="http://localhost:4000/test/2013/12/25/elements/">&lt;p&gt;The purpose of this post is to help you make sure all of HTML elements can display properly. If you use CSS reset, don’t forget to redefine the style by yourself.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
+
+&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
+
+&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;paragraph&quot;&gt;Paragraph&lt;/h2&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, &lt;a href=&quot;&quot;&gt;test link&lt;/a&gt; consectetur adipiscing elit. &lt;strong&gt;Strong text&lt;/strong&gt; pellentesque ligula commodo viverra vehicula. &lt;em&gt;Italic text&lt;/em&gt; at ullamcorper enim. Morbi a euismod nibh. &lt;u&gt;Underline text&lt;/u&gt; non elit nisl. &lt;del&gt;Deleted text&lt;/del&gt; tristique, sem id condimentum tempus, metus lectus venenatis mauris, sit amet semper lorem felis a eros. Fusce egestas nibh at sagittis auctor. Sed ultricies ac arcu quis molestie. Donec dapibus nunc in nibh egestas, vitae volutpat sem iaculis. Curabitur sem tellus, elementum nec quam id, fermentum laoreet mi. Ut mollis ullamcorper turpis, vitae facilisis velit ultricies sit amet. Etiam laoreet dui odio, id tempus justo tincidunt id. Phasellus scelerisque nunc sed nunc ultricies accumsan.&lt;/p&gt;
+
+&lt;p&gt;Interdum et malesuada fames ac ante ipsum primis in faucibus. &lt;code class=&quot;highlighter-rouge&quot;&gt;Sed erat diam&lt;/code&gt;, blandit eget felis aliquam, rhoncus varius urna. Donec tellus sapien, sodales eget ante vitae, feugiat ullamcorper urna. Praesent auctor dui vitae dapibus eleifend. Proin viverra mollis neque, ut ullamcorper elit posuere eget.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Praesent diam elit, interdum ut pulvinar placerat, imperdiet at magna.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Maecenas ornare arcu at mi suscipit, non molestie tortor ultrices. Aenean convallis, diam et congue ultricies, erat magna tincidunt orci, pulvinar posuere mi sapien ac magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent vitae placerat mauris. Nullam laoreet ante posuere tortor blandit auctor. Sed id ligula volutpat leo consequat placerat. Mauris fermentum dolor sed augue malesuada sollicitudin. Vivamus ultrices nunc felis, quis viverra orci eleifend ut. Donec et quam id urna cursus posuere. Donec elementum scelerisque laoreet.&lt;/p&gt;
+
+&lt;h2 id=&quot;list-types&quot;&gt;List Types&lt;/h2&gt;
+
+&lt;h3 id=&quot;definition-list-dl&quot;&gt;Definition List (dl)&lt;/h3&gt;
+
+&lt;dl&gt;&lt;dt&gt;Definition List Title&lt;/dt&gt;&lt;dd&gt;This is a definition list division.&lt;/dd&gt;&lt;/dl&gt;
+
+&lt;h3 id=&quot;ordered-list-ol&quot;&gt;Ordered List (ol)&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;List Item 1&lt;/li&gt;
+  &lt;li&gt;List Item 2&lt;/li&gt;
+  &lt;li&gt;List Item 3&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;unordered-list-ul&quot;&gt;Unordered List (ul)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;List Item 1&lt;/li&gt;
+  &lt;li&gt;List Item 2&lt;/li&gt;
+  &lt;li&gt;List Item 3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;table&quot;&gt;Table&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Table Header 1&lt;/th&gt;
+      &lt;th&gt;Table Header 2&lt;/th&gt;
+      &lt;th&gt;Table Header 3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Division 1&lt;/td&gt;
+      &lt;td&gt;Division 2&lt;/td&gt;
+      &lt;td&gt;Division 3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Division 1&lt;/td&gt;
+      &lt;td&gt;Division 2&lt;/td&gt;
+      &lt;td&gt;Division 3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Division 1&lt;/td&gt;
+      &lt;td&gt;Division 2&lt;/td&gt;
+      &lt;td&gt;Division 3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;misc-stuff---abbr-acronym-sub-sup-etc&quot;&gt;Misc Stuff - abbr, acronym, sub, sup, etc.&lt;/h2&gt;
+
+&lt;p&gt;Lorem &lt;sup&gt;superscript&lt;/sup&gt; dolor &lt;sub&gt;subscript&lt;/sub&gt; amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. &lt;cite&gt;cite&lt;/cite&gt;. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. &lt;acronym title=&quot;National Basketball Association&quot;&gt;NBA&lt;/acronym&gt; Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.  &lt;abbr title=&quot;Avenue&quot;&gt;AVE&lt;/abbr&gt;&lt;/p&gt;</content><author><name>Emc2</name></author><category term="elements" /><summary type="html">The purpose of this post is to help you make sure all of HTML elements can display properly. If you use CSS reset, don’t forget to redefine the style by yourself.</summary></entry></feed>
