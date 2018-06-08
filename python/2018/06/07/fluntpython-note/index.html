@@ -392,7 +392,21 @@
       
 
       
-        <h1 id="第一章-数据类型">第一章 数据类型</h1>
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  <h1 id="第一章-数据类型">第一章 数据类型</h1>
 
 <hr />
 
@@ -442,13 +456,13 @@
 
 <p><strong><em>生成器：yield 或 ( 推导式 )</em></strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>l=[0, 1, 20, 11, 5, 22, 9]
+<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6</pre></td><td class="code"><pre class="highlight"><code>l=[0, 1, 20, 11, 5, 22, 9]
 
 l[2:5] = 100 ➊
 
 &gt;  Traceback (most recent call last):File "", line 1,
 &gt;  in*TypeError:can only assign an iterable
-</code></pre>
+</code></pre></td></tr></tbody></table></div>
 </div>
 <p>➊如果赋值的对象是一个切片，那么赋值语句的右侧必须是个可迭代对象。即便只有单独一个值，也要把它转换成可迭代的序列。</p>
 
@@ -481,10 +495,10 @@ l[2:5] = 100 ➊
 <p><img src="http://upload-images.jianshu.io/upload_images/12502239-770fd0c03a1d66f2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" /></p>
 
 <p>4.栗子：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code> &gt;&gt;&gt; t = (1, 2, [30, 40])
+<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code> &gt;&gt;&gt; t = (1, 2, [30, 40])
 
  &gt;&gt;&gt; t[2] += [50, 60]
-</code></pre>
+</code></pre></td></tr></tbody></table></div>
 </div>
 <p>抛出异常同时修改t</p>
 
@@ -497,7 +511,7 @@ l[2:5] = 100 ➊
 <p><strong>3、查看 Python 的字节码并不难，而且它对我们了解代码背后的运行机制很有帮助。</strong></p>
 
 <p>5.创建字典的不同方式：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; a = dict(one=1, two=2, three=3)
+<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13</pre></td><td class="code"><pre class="highlight"><code>&gt;&gt;&gt; a = dict(one=1, two=2, three=3)
 
 &gt;&gt;&gt; b = {'one': 1, 'two': 2, 'three': 3}
 
@@ -510,26 +524,27 @@ l[2:5] = 100 ➊
 &gt;&gt;&gt; a == b == c == d == e
 
 True
-</code></pre>
+</code></pre></td></tr></tbody></table></div>
 </div>
 
 <p>6.减少字典查询次数：
 这样写</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>my_dict.setdefault(key, []).append(new_value)
+<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>my_dict.setdefault(key, []).append(new_value)
 获取单词的出现情况列表，如果单词不存在，把单词和一个空列表放进映射，然后返回这个空列表，这样就能在不进行第二次查找的情况下更新列表了。
-</code></pre>
+</code></pre></td></tr></tbody></table></div>
 </div>
 
 <p>跟这样写：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>if key not in my_dict:
+<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code>if key not in my_dict:
 my_dict[key] = []
 my_dict[key].append(new_value)
-</code></pre>
+</code></pre></td></tr></tbody></table></div>
 </div>
 <p>二者的效果是一样的，只不过后者至少要进行两次键查询——如果键不存在的话，就是三次，用 setdefault 只需要一次就可以完成整个操作。</p>
 
 <p>7.defaultdict 里的 default_factory 只会在__getitem__ 里被调用，在其他的方法里完全不会发挥作用。比
 如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 创造某个默认值，而 dd.get(k) 则会返回 None。</p>
+
 
       
     </div>
@@ -627,6 +642,9 @@ my_dict[key].append(new_value)
 
 
 
+
+
+
       
 
       
@@ -718,10 +736,13 @@ my_dict[key].append(new_value)
 
 
 
+
+
+
             
               <div class="post-toc-content">
     <ol class=nav>
-      <li class="nav-item nav-level-1"> <a class="nav-link" href="#第一章-数据类型"> <span class="nav-number">1</span> <span class="nav-text">第一章 数据类型</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> </li></ol> </li></ol> </li></ol> </li></ol> </li></ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#第二章-序列数组"> <span class="nav-number">2</span> <span class="nav-text">第二章 序列数组</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child">
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#第一章-数据类型"> <span class="nav-number">1</span> <span class="nav-text">第一章 数据类型</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#第二章-序列数组"> <span class="nav-number">2</span> <span class="nav-text">第二章 序列数组</span> </a> </li>
     </ol>
   </div>
             
