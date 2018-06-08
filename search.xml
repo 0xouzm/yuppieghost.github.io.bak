@@ -2,6 +2,29 @@
 <search>
   
     <entry>
+      <title>课堂笔记</title>
+      <url>/python/2018/06/08/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/</url>
+      <content type="text">2018-06-08
+##进程
+
+
+  fork 返回值
+父进程返回子进程的pid号,子进程中返回值为0
+互相不等待,多进程中,每个进程中所有数据（包括全局变量）都各有拥有⼀份，互不影响
+
+</content>
+      <categories>
+        
+          <category> python </category>
+        
+      </categories>
+      <tags>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
       <title>fluent python笔记</title>
       <url>/python/2018/06/07/fluntpython-note/</url>
       <content type="text">第一章 数据类型
