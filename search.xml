@@ -5,8 +5,8 @@
       <title>课堂笔记</title>
       <url>/python/2018/06/08/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/</url>
       <content type="text">2018-06-08
-##进程
 
+进程
 
   fork 返回值
 父进程返回子进程的pid号,子进程中返回值为0
