@@ -4,23 +4,24 @@
     <entry>
       <title>fluent python笔记</title>
       <url>/python/2018/06/07/fluntpython-note/</url>
-      <content type="text">第一章 数据类型
+      <content type="text">数据类型
 
 
 
-1.bool(x) 的背后是调用x.bool() 的结果；如果不存在 bool 方法，那么 bool(x) 会尝试调用 x.len()。若返回 0，则 bool 会返回 False；否则返回True。
+bool
+bool(x) 的背后是调用x.bool() 的结果；如果不存在 bool 方法，那么 bool(x) 会尝试调用 x.len()。若返回 0，则 bool 会返回 False；否则返回True。
 
 bool&amp;gt; __bool__&amp;gt;__len__
 
-2.自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。
+自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。
 
 collections.namedtuple
 
-第二章 序列数组
+序列数组
 
 
 
-1.
+序列
 
 容器序列
 
@@ -42,10 +43,10 @@ collections.namedtuple
 
 
 
-2.关于迭代器和生成器：
+关于迭代器和生成器：
 
 
-  https://segmentfault.com/a/1190000007208388
+  白话解释迭代器和生成器
 
 
 迭代器：含__next__()
@@ -64,7 +65,7 @@ l[2:5] = 100 ➊
 
 ➊如果赋值的对象是一个切片，那么赋值语句的右侧必须是个可迭代对象。即便只有单独一个值，也要把它转换成可迭代的序列。
 
-3.初始化多维列表
+初始化多维列表
 
 错误用法
 
@@ -78,7 +79,7 @@ l[2:5] = 100 ➊
 
 总结：注意对象的引用是否变化
 
-4.关于序列的增量赋值运算
+关于序列的增量赋值运算
 
 += 类似于 *=
 
@@ -92,7 +93,8 @@ l[2:5] = 100 ➊
 
 
 
-4.栗子：
+元祖
+栗子：
  &amp;gt;&amp;gt;&amp;gt; t = (1, 2, [30, 40])
 
  &amp;gt;&amp;gt;&amp;gt; t[2] += [50, 60]
@@ -108,9 +110,9 @@ l[2:5] = 100 ➊
 
 3、查看 Python 的字节码并不难，而且它对我们了解代码背后的运行机制很有帮助。
 
-第三章 字典
+字典
 
-1.创建字典的不同方式：
+创建字典的不同方式：
 &amp;gt;&amp;gt;&amp;gt; a = dict(one=1, two=2, three=3)
 
 &amp;gt;&amp;gt;&amp;gt; b = {'one': 1, 'two': 2, 'three': 3}
@@ -127,7 +129,7 @@ True
 
 
 
-2.减少字典查询次数：
+减少字典查询次数：
 这样写
 my_dict.setdefault(key, []).append(new_value)
 
@@ -141,9 +143,10 @@ my_dict[key].append(new_value)
 
 二者的效果是一样的，只不过后者至少要进行两次键查询——如果键不存在的话，就是三次，用 setdefault 只需要一次就可以完成整个操作。
 
-3.defaultdict 里的default_factory只会在__getitem__里被调用，在其他的方法里完全不会发挥作用。比如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 的__getitem__ 方法创造某个默认值，而 dd.get(k) 则会返回 None。
+defaultdict
+defaultdict 里的default_factory只会在__getitem__里被调用，在其他的方法里完全不会发挥作用。比如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 的__getitem__ 方法创造某个默认值，而 dd.get(k) 则会返回 None。
 
-4.
+__missing__
 class StrKeyDict0(dict): ➊
     def __missing__(self, key):
         if isinstance(key, str): ➋

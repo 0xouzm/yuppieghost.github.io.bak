@@ -14,7 +14,7 @@
 
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -130,7 +130,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -406,23 +406,24 @@
 
 
 
-  <h1 id="第一章-数据类型">第一章 数据类型</h1>
+  <h1 id="数据类型">数据类型</h1>
 
 <hr />
 
-<p>1.bool(x) 的背后是调用x.<strong>bool</strong>() 的结果；如果不存在 <strong>bool</strong> 方法，那么 bool(x) 会尝试调用 x.<strong>len</strong>()。若返回 0，则 bool 会返回 False；否则返回True。</p>
+<h3 id="bool">bool</h3>
+<p>bool(x) 的背后是调用x.<strong>bool</strong>() 的结果；如果不存在 <strong>bool</strong> 方法，那么 bool(x) 会尝试调用 x.<strong>len</strong>()。若返回 0，则 bool 会返回 False；否则返回True。</p>
 
 <p><em>bool&gt; __bool__&gt;__len__</em></p>
 
-<p>2.自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。</p>
+<h3 id="自-python-26-开始namedtuple-就加入到-python-里用以构建只有少数属性但是没有方法的对象比如数据库条目">自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。</h3>
 
 <p><em>collections.namedtuple</em></p>
 
-<h1 id="第二章-序列数组">第二章 序列数组</h1>
+<h1 id="序列数组">序列数组</h1>
 
 <hr />
 
-<p>1.</p>
+<h3 id="序列">序列</h3>
 
 <p>容器序列</p>
 
@@ -444,10 +445,10 @@
 
 <p><img src="http://upload-images.jianshu.io/upload_images/12502239-64aa498350f3f65a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" /></p>
 
-<p>2.关于迭代器和生成器：</p>
+<h3 id="关于迭代器和生成器">关于迭代器和生成器：</h3>
 
 <blockquote>
-  <p>https://segmentfault.com/a/1190000007208388</p>
+  <p><a href="https://segmentfault.com/a/1190000007208388">白话解释迭代器和生成器</a></p>
 </blockquote>
 
 <p><strong><em>迭代器：含__next__()</em></strong></p>
@@ -466,7 +467,7 @@ l[2:5] = 100 ➊
 </div>
 <p>➊如果赋值的对象是一个切片，那么赋值语句的右侧必须是个可迭代对象。即便只有单独一个值，也要把它转换成可迭代的序列。</p>
 
-<p>3.初始化多维列表</p>
+<h3 id="初始化多维列表">初始化多维列表</h3>
 
 <p>错误用法</p>
 
@@ -480,7 +481,7 @@ l[2:5] = 100 ➊
 
 <p>总结：注意对象的引用是否变化</p>
 
-<p>4.关于序列的增量赋值运算</p>
+<h3 id="关于序列的增量赋值运算">关于序列的增量赋值运算</h3>
 
 <p><strong>+=</strong> 类似于 <strong>*=</strong></p>
 
@@ -494,7 +495,8 @@ l[2:5] = 100 ➊
 
 <p><img src="http://upload-images.jianshu.io/upload_images/12502239-770fd0c03a1d66f2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" /></p>
 
-<p>4.栗子：</p>
+<h3 id="元祖">元祖</h3>
+<p>栗子：</p>
 <div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code> &gt;&gt;&gt; t = (1, 2, [30, 40])
 
  &gt;&gt;&gt; t[2] += [50, 60]
@@ -510,9 +512,9 @@ l[2:5] = 100 ➊
 
 <p><strong>3、查看 Python 的字节码并不难，而且它对我们了解代码背后的运行机制很有帮助。</strong></p>
 
-<h1 id="第三章-字典">第三章 字典</h1>
+<h1 id="字典">字典</h1>
 
-<p>1.创建字典的不同方式：</p>
+<h3 id="创建字典的不同方式">创建字典的不同方式：</h3>
 <div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13</pre></td><td class="code"><pre class="highlight"><code>&gt;&gt;&gt; a = dict(one=1, two=2, three=3)
 
 &gt;&gt;&gt; b = {'one': 1, 'two': 2, 'three': 3}
@@ -529,8 +531,8 @@ True
 </code></pre></td></tr></tbody></table></div>
 </div>
 
-<p>2.减少字典查询次数：
-这样写
+<h3 id="减少字典查询次数">减少字典查询次数：</h3>
+<p>这样写
 <code class="highlighter-rouge">my_dict.setdefault(key, []).append(new_value)</code></p>
 
 <p><em>获取单词的出现情况列表，如果单词不存在，把单词和一个空列表放进映射，然后返回这个空列表，这样就能在不进行第二次查找的情况下更新列表了。</em></p>
@@ -543,9 +545,10 @@ my_dict[key].append(new_value)
 </div>
 <p>二者的效果是一样的，只不过后者至少要进行两次键查询——如果键不存在的话，就是三次，用 setdefault 只需要一次就可以完成整个操作。</p>
 
-<p>3.defaultdict 里的default_factory只会在__getitem__里被调用，在其他的方法里完全不会发挥作用。比如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 的__getitem__ 方法创造某个默认值，而 dd.get(k) 则会返回 None。</p>
+<h3 id="defaultdict">defaultdict</h3>
+<p>defaultdict 里的default_factory只会在__getitem__里被调用，在其他的方法里完全不会发挥作用。比如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 的__getitem__ 方法创造某个默认值，而 dd.get(k) 则会返回 None。</p>
 
-<p>4.</p>
+<h3 id="__missing__">__missing__</h3>
 <div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12</pre></td><td class="code"><pre class="highlight"><code>class StrKeyDict0(dict): ➊
     def __missing__(self, key):
         if isinstance(key, str): ➋
@@ -764,7 +767,7 @@ my_dict[key].append(new_value)
             
               <div class="post-toc-content">
     <ol class=nav>
-      <li class="nav-item nav-level-1"> <a class="nav-link" href="#第一章-数据类型"> <span class="nav-number">1</span> <span class="nav-text">第一章 数据类型</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#第二章-序列数组"> <span class="nav-number">2</span> <span class="nav-text">第二章 序列数组</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#第三章-字典"> <span class="nav-number">3</span> <span class="nav-text">第三章 字典</span> </a> </li>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#数据类型"> <span class="nav-number">1</span> <span class="nav-text">数据类型</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#bool"> <span class="nav-number">1.1</span> <span class="nav-text">bool</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#自-python-26-开始namedtuple-就加入到-python-里用以构建只有少数属性但是没有方法的对象比如数据库条目"> <span class="nav-number">1.2</span> <span class="nav-text">自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#序列数组"> <span class="nav-number">2</span> <span class="nav-text">序列数组</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#序列"> <span class="nav-number">2.1</span> <span class="nav-text">序列</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#关于迭代器和生成器"> <span class="nav-number">2.2</span> <span class="nav-text">关于迭代器和生成器：</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#初始化多维列表"> <span class="nav-number">2.3</span> <span class="nav-text">初始化多维列表</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#关于序列的增量赋值运算"> <span class="nav-number">2.4</span> <span class="nav-text">关于序列的增量赋值运算</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#元祖"> <span class="nav-number">2.5</span> <span class="nav-text">元祖</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#字典"> <span class="nav-number">3</span> <span class="nav-text">字典</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#创建字典的不同方式"> <span class="nav-number">3.1</span> <span class="nav-text">创建字典的不同方式：</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#减少字典查询次数"> <span class="nav-number">3.2</span> <span class="nav-text">减少字典查询次数：</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#defaultdict"> <span class="nav-number">3.3</span> <span class="nav-text">defaultdict</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#__missing__"> <span class="nav-number">3.4</span> <span class="nav-text">__missing__</span> </a> </li> </ol> </li>
     </ol>
   </div>
             
@@ -796,17 +799,6 @@ my_dict[key].append(new_value)
   <span class="author" itemprop="copyrightHolder">WUJIAJING</span>
 </div>
 
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://jekyllrb.com">Jekyll</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
-    NexT.Pisces
-  </a>
-</div>
 
 
         
@@ -908,13 +900,6 @@ my_dict[key].append(new_value)
 
   
   
-
-
-  <script type="text/javascript" src="/assets/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/assets/js/src/schemes/pisces.js?v=5.1.1"></script>
-
-
 
   <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>

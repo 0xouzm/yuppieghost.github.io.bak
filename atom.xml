@@ -1,20 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-11T14:05:15+08:00</updated><id>http://localhost:4000/</id><title type="html">By WUJIAJING</title><subtitle>Because it is there.</subtitle><author><name>WUJIAJING</name></author><entry><title type="html">fluent python笔记</title><link href="http://localhost:4000/python/2018/06/07/fluntpython-note/" rel="alternate" type="text/html" title="fluent python笔记" /><published>2018-06-07T08:14:39+08:00</published><updated>2018-06-07T08:14:39+08:00</updated><id>http://localhost:4000/python/2018/06/07/fluntpython-note</id><content type="html" xml:base="http://localhost:4000/python/2018/06/07/fluntpython-note/">&lt;h1 id=&quot;第一章-数据类型&quot;&gt;第一章 数据类型&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-11T14:24:00+08:00</updated><id>http://localhost:4000/</id><title type="html">By WUJIAJING</title><subtitle>Because it is there.</subtitle><author><name>WUJIAJING</name></author><entry><title type="html">fluent python笔记</title><link href="http://localhost:4000/python/2018/06/07/fluntpython-note/" rel="alternate" type="text/html" title="fluent python笔记" /><published>2018-06-07T08:14:39+08:00</published><updated>2018-06-07T08:14:39+08:00</updated><id>http://localhost:4000/python/2018/06/07/fluntpython-note</id><content type="html" xml:base="http://localhost:4000/python/2018/06/07/fluntpython-note/">&lt;h1 id=&quot;数据类型&quot;&gt;数据类型&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;1.bool(x) 的背后是调用x.&lt;strong&gt;bool&lt;/strong&gt;() 的结果；如果不存在 &lt;strong&gt;bool&lt;/strong&gt; 方法，那么 bool(x) 会尝试调用 x.&lt;strong&gt;len&lt;/strong&gt;()。若返回 0，则 bool 会返回 False；否则返回True。&lt;/p&gt;
+&lt;h3 id=&quot;bool&quot;&gt;bool&lt;/h3&gt;
+&lt;p&gt;bool(x) 的背后是调用x.&lt;strong&gt;bool&lt;/strong&gt;() 的结果；如果不存在 &lt;strong&gt;bool&lt;/strong&gt; 方法，那么 bool(x) 会尝试调用 x.&lt;strong&gt;len&lt;/strong&gt;()。若返回 0，则 bool 会返回 False；否则返回True。&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;bool&amp;gt; __bool__&amp;gt;__len__&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;2.自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。&lt;/p&gt;
+&lt;h3 id=&quot;自-python-26-开始namedtuple-就加入到-python-里用以构建只有少数属性但是没有方法的对象比如数据库条目&quot;&gt;自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。&lt;/h3&gt;
 
 &lt;p&gt;&lt;em&gt;collections.namedtuple&lt;/em&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;第二章-序列数组&quot;&gt;第二章 序列数组&lt;/h1&gt;
+&lt;h1 id=&quot;序列数组&quot;&gt;序列数组&lt;/h1&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;1.&lt;/p&gt;
+&lt;h3 id=&quot;序列&quot;&gt;序列&lt;/h3&gt;
 
 &lt;p&gt;容器序列&lt;/p&gt;
 
@@ -36,10 +37,10 @@
 
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/12502239-64aa498350f3f65a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;2.关于迭代器和生成器：&lt;/p&gt;
+&lt;h3 id=&quot;关于迭代器和生成器&quot;&gt;关于迭代器和生成器：&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;https://segmentfault.com/a/1190000007208388&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000007208388&quot;&gt;白话解释迭代器和生成器&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;迭代器：含__next__()&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -58,7 +59,7 @@ l[2:5] = 100 ➊
 &lt;/div&gt;
 &lt;p&gt;➊如果赋值的对象是一个切片，那么赋值语句的右侧必须是个可迭代对象。即便只有单独一个值，也要把它转换成可迭代的序列。&lt;/p&gt;
 
-&lt;p&gt;3.初始化多维列表&lt;/p&gt;
+&lt;h3 id=&quot;初始化多维列表&quot;&gt;初始化多维列表&lt;/h3&gt;
 
 &lt;p&gt;错误用法&lt;/p&gt;
 
@@ -72,7 +73,7 @@ l[2:5] = 100 ➊
 
 &lt;p&gt;总结：注意对象的引用是否变化&lt;/p&gt;
 
-&lt;p&gt;4.关于序列的增量赋值运算&lt;/p&gt;
+&lt;h3 id=&quot;关于序列的增量赋值运算&quot;&gt;关于序列的增量赋值运算&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;+=&lt;/strong&gt; 类似于 &lt;strong&gt;*=&lt;/strong&gt;&lt;/p&gt;
 
@@ -86,7 +87,8 @@ l[2:5] = 100 ➊
 
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/12502239-770fd0c03a1d66f2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;4.栗子：&lt;/p&gt;
+&lt;h3 id=&quot;元祖&quot;&gt;元祖&lt;/h3&gt;
+&lt;p&gt;栗子：&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &amp;gt;&amp;gt;&amp;gt; t = (1, 2, [30, 40])
 
  &amp;gt;&amp;gt;&amp;gt; t[2] += [50, 60]
@@ -102,9 +104,9 @@ l[2:5] = 100 ➊
 
 &lt;p&gt;&lt;strong&gt;3、查看 Python 的字节码并不难，而且它对我们了解代码背后的运行机制很有帮助。&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;第三章-字典&quot;&gt;第三章 字典&lt;/h1&gt;
+&lt;h1 id=&quot;字典&quot;&gt;字典&lt;/h1&gt;
 
-&lt;p&gt;1.创建字典的不同方式：&lt;/p&gt;
+&lt;h3 id=&quot;创建字典的不同方式&quot;&gt;创建字典的不同方式：&lt;/h3&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; a = dict(one=1, two=2, three=3)
 
 &amp;gt;&amp;gt;&amp;gt; b = {'one': 1, 'two': 2, 'three': 3}
@@ -121,8 +123,8 @@ True
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;2.减少字典查询次数：
-这样写
+&lt;h3 id=&quot;减少字典查询次数&quot;&gt;减少字典查询次数：&lt;/h3&gt;
+&lt;p&gt;这样写
 &lt;code class=&quot;highlighter-rouge&quot;&gt;my_dict.setdefault(key, []).append(new_value)&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;获取单词的出现情况列表，如果单词不存在，把单词和一个空列表放进映射，然后返回这个空列表，这样就能在不进行第二次查找的情况下更新列表了。&lt;/em&gt;&lt;/p&gt;
@@ -135,9 +137,10 @@ my_dict[key].append(new_value)
 &lt;/div&gt;
 &lt;p&gt;二者的效果是一样的，只不过后者至少要进行两次键查询——如果键不存在的话，就是三次，用 setdefault 只需要一次就可以完成整个操作。&lt;/p&gt;
 
-&lt;p&gt;3.defaultdict 里的default_factory只会在__getitem__里被调用，在其他的方法里完全不会发挥作用。比如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 的__getitem__ 方法创造某个默认值，而 dd.get(k) 则会返回 None。&lt;/p&gt;
+&lt;h3 id=&quot;defaultdict&quot;&gt;defaultdict&lt;/h3&gt;
+&lt;p&gt;defaultdict 里的default_factory只会在__getitem__里被调用，在其他的方法里完全不会发挥作用。比如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 的__getitem__ 方法创造某个默认值，而 dd.get(k) 则会返回 None。&lt;/p&gt;
 
-&lt;p&gt;4.&lt;/p&gt;
+&lt;h3 id=&quot;__missing__&quot;&gt;__missing__&lt;/h3&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class StrKeyDict0(dict): ➊
     def __missing__(self, key):
         if isinstance(key, str): ➋
@@ -157,7 +160,7 @@ my_dict[key].append(new_value)
 ❸ 如果找不到的键不是字符串，那么把它转换成字符串再进行查找。
 ❹ get 方法把查找工作用 self[key] 的形式委托给 __getitem__，这样在宣布查找失败之前，还能通过 __missing__ 再给某个键一个机会。
 ❺ 如果抛出 KeyError，那么说明 __missing__ 也失败了，于是返回default。
-❻ 先按照传入键的原本的值来查找（我们的映射类型中可能含有非字符串的键），如果没找到，再用 str() 方法把键转换成字符串再查找一次。&lt;/p&gt;</content><author><name>WUJIAJING</name></author><summary type="html">第一章 数据类型</summary></entry><entry><title type="html">总算弄好了</title><link href="http://localhost:4000/2018/06/07/day1/" rel="alternate" type="text/html" title="总算弄好了" /><published>2018-06-07T08:14:39+08:00</published><updated>2018-06-07T08:14:39+08:00</updated><id>http://localhost:4000/2018/06/07/day1</id><content type="html" xml:base="http://localhost:4000/2018/06/07/day1/">&lt;blockquote&gt;
+❻ 先按照传入键的原本的值来查找（我们的映射类型中可能含有非字符串的键），如果没找到，再用 str() 方法把键转换成字符串再查找一次。&lt;/p&gt;</content><author><name>WUJIAJING</name></author><summary type="html">数据类型</summary></entry><entry><title type="html">总算弄好了</title><link href="http://localhost:4000/2018/06/07/day1/" rel="alternate" type="text/html" title="总算弄好了" /><published>2018-06-07T08:14:39+08:00</published><updated>2018-06-07T08:14:39+08:00</updated><id>http://localhost:4000/2018/06/07/day1</id><content type="html" xml:base="http://localhost:4000/2018/06/07/day1/">&lt;blockquote&gt;
   &lt;p&gt;我的猫在我的键盘上走了一圈…
 舍不得删它&lt;/p&gt;
 &lt;/blockquote&gt;</content><author><name>WUJIAJING</name></author><category term="不容易" /><summary type="html">我的猫在我的键盘上走了一圈… 舍不得删它</summary></entry></feed>
