@@ -13,9 +13,8 @@ bool(x) 的背后是调用x.bool() 的结果；如果不存在 bool 方法，那
 
 bool&amp;gt; __bool__&amp;gt;__len__
 
-自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。
-
 collections.namedtuple
+自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。
 
 序列数组
 
@@ -124,7 +123,6 @@ l[2:5] = 100 ➊
 &amp;gt;&amp;gt;&amp;gt; e = dict({'three': 3, 'one': 1, 'two': 2})
 
 &amp;gt;&amp;gt;&amp;gt; a == b == c == d == e
-
 True
 
 
@@ -136,9 +134,11 @@ my_dict.setdefault(key, []).append(new_value)
 获取单词的出现情况列表，如果单词不存在，把单词和一个空列表放进映射，然后返回这个空列表，这样就能在不进行第二次查找的情况下更新列表了。
 
 跟这样写：
+
 if key not in my_dict:
-my_dict[key] = []
-my_dict[key].append(new_value)
+    my_dict[key] = []
+    my_dict[key].append(new_value)
+
 
 
 二者的效果是一样的，只不过后者至少要进行两次键查询——如果键不存在的话，就是三次，用 setdefault 只需要一次就可以完成整个操作。
@@ -147,6 +147,7 @@ defaultdict
 defaultdict 里的default_factory只会在__getitem__里被调用，在其他的方法里完全不会发挥作用。比如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 的__getitem__ 方法创造某个默认值，而 dd.get(k) 则会返回 None。
 
 __missing__
+
 class StrKeyDict0(dict): ➊
     def __missing__(self, key):
         if isinstance(key, str): ➋
@@ -167,6 +168,9 @@ class StrKeyDict0(dict): ➊
 ❹ get 方法把查找工作用 self[key] 的形式委托给 __getitem__，这样在宣布查找失败之前，还能通过 __missing__ 再给某个键一个机会。
 ❺ 如果抛出 KeyError，那么说明 __missing__ 也失败了，于是返回default。
 ❻ 先按照传入键的原本的值来查找（我们的映射类型中可能含有非字符串的键），如果没找到，再用 str() 方法把键转换成字符串再查找一次。
+
+:laughing:
+
 </content>
       <categories>
         
@@ -180,11 +184,12 @@ class StrKeyDict0(dict): ➊
     </entry>
   
     <entry>
-      <title>总算弄好了</title>
+      <title>ok</title>
       <url>/2018/06/07/day1/</url>
-      <content type="text">
-  我的猫在我的键盘上走了一圈…
+      <content type="text">我的猫在我的键盘上走了一圈tuniocxzubhlkn214890o0ihfclknaeopj*(y732iknhdvgpoanlkn214ijoxcvn,asdfklj314
 舍不得删它
+
+:smirk:
 
 </content>
       <categories>
