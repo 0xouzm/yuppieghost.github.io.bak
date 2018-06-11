@@ -183,7 +183,6 @@ class StrKeyDict0(dict): ➊
       <tags></tags>
     </entry>
   
-<<<<<<< HEAD
     <entry>
       <title>ok</title>
       <url>/2018/06/07/day1/</url>
@@ -204,6 +203,4 @@ class StrKeyDict0(dict): ➊
       <tags></tags>
     </entry>
   
-=======
->>>>>>> 497b8f463374aa1fb2ff42dcc19a9cd2191ececa
 </search>
