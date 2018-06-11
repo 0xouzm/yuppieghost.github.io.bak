@@ -169,8 +169,7 @@ class StrKeyDict0(dict): ➊
 ❺ 如果抛出 KeyError，那么说明 __missing__ 也失败了，于是返回default。
 ❻ 先按照传入键的原本的值来查找（我们的映射类型中可能含有非字符串的键），如果没找到，再用 str() 方法把键转换成字符串再查找一次。
 
-:laughing:
-
+To be continued… :runner:
 </content>
       <categories>
         
