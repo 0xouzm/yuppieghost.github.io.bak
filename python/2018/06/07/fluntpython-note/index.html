@@ -415,9 +415,8 @@
 
 <p><em>bool&gt; __bool__&gt;__len__</em></p>
 
-<h3 id="自-python-26-开始namedtuple-就加入到-python-里用以构建只有少数属性但是没有方法的对象比如数据库条目">自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。</h3>
-
-<p><em>collections.namedtuple</em></p>
+<h3 id="collectionsnamedtuple">collections.namedtuple</h3>
+<p>自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。</p>
 
 <h1 id="序列数组">序列数组</h1>
 
@@ -497,9 +496,9 @@ l[2:5] = 100 ➊
 
 <h3 id="元祖">元祖</h3>
 <p>栗子：</p>
-<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code> &gt;&gt;&gt; t = (1, 2, [30, 40])
+<div class="language-python highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code> <span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
 
- &gt;&gt;&gt; t[2] += [50, 60]
+ <span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
 </code></pre></td></tr></tbody></table></div>
 </div>
 <p>抛出异常同时修改t</p>
@@ -515,19 +514,18 @@ l[2:5] = 100 ➊
 <h1 id="字典">字典</h1>
 
 <h3 id="创建字典的不同方式">创建字典的不同方式：</h3>
-<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13</pre></td><td class="code"><pre class="highlight"><code>&gt;&gt;&gt; a = dict(one=1, two=2, three=3)
+<div class="language-python highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12</pre></td><td class="code"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">one</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">two</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">three</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
-&gt;&gt;&gt; b = {'one': 1, 'two': 2, 'three': 3}
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="s">'one'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'two'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'three'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 
-&gt;&gt;&gt; c = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s">'one'</span><span class="p">,</span> <span class="s">'two'</span><span class="p">,</span> <span class="s">'three'</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 
-&gt;&gt;&gt; d = dict([('two', 2), ('one', 1), ('three', 3)])
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s">'two'</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s">'one'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s">'three'</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
 
-&gt;&gt;&gt; e = dict({'three': 3, 'one': 1, 'two': 2})
+<span class="o">&gt;&gt;&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="s">'three'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'one'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'two'</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 
-&gt;&gt;&gt; a == b == c == d == e
-
-True
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="o">==</span> <span class="n">c</span> <span class="o">==</span> <span class="n">d</span> <span class="o">==</span> <span class="n">e</span>
+<span class="bp">True</span>
 </code></pre></td></tr></tbody></table></div>
 </div>
 
@@ -538,29 +536,32 @@ True
 <p><em>获取单词的出现情况列表，如果单词不存在，把单词和一个空列表放进映射，然后返回这个空列表，这样就能在不进行第二次查找的情况下更新列表了。</em></p>
 
 <p>跟这样写：</p>
-<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code>if key not in my_dict:
-my_dict[key] = []
-my_dict[key].append(new_value)
+
+<div class="language-python highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code><span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
+    <span class="n">my_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">my_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
 </code></pre></td></tr></tbody></table></div>
 </div>
+
 <p>二者的效果是一样的，只不过后者至少要进行两次键查询——如果键不存在的话，就是三次，用 setdefault 只需要一次就可以完成整个操作。</p>
 
 <h3 id="defaultdict">defaultdict</h3>
 <p>defaultdict 里的default_factory只会在__getitem__里被调用，在其他的方法里完全不会发挥作用。比如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 的__getitem__ 方法创造某个默认值，而 dd.get(k) 则会返回 None。</p>
 
 <h3 id="__missing__">__missing__</h3>
-<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12</pre></td><td class="code"><pre class="highlight"><code>class StrKeyDict0(dict): ➊
-    def __missing__(self, key):
-        if isinstance(key, str): ➋
-            raise KeyError(key)
-        return self[str(key)] ➌
-    def get(self, key, default=None):
-        try:
-            return self[key] ➍
-        except KeyError:
-            return default ➎
-    def __contains__(self, key):
-        return key in self.keys() or str(key) in self.keys() ➏
+
+<div class="language-python highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12</pre></td><td class="code"><pre class="highlight"><code><span class="k">class</span> <span class="nc">StrKeyDict0</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span> <span class="err">➊</span>
+    <span class="k">def</span> <span class="nf">__missing__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span> <span class="err">➋</span>
+            <span class="k">raise</span> <span class="nb">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="err">➌</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="err">➍</span>
+        <span class="k">except</span> <span class="nb">KeyError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">default</span> <span class="err">➎</span>
+    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="err">➏</span>
 </code></pre></td></tr></tbody></table></div>
 </div>
 <p>❶ StrKeyDict0 继承了 dict。
@@ -569,6 +570,7 @@ my_dict[key].append(new_value)
 ❹ get 方法把查找工作用 self[key] 的形式委托给 __getitem__，这样在宣布查找失败之前，还能通过 __missing__ 再给某个键一个机会。
 ❺ 如果抛出 KeyError，那么说明 __missing__ 也失败了，于是返回default。
 ❻ 先按照传入键的原本的值来查找（我们的映射类型中可能含有非字符串的键），如果没找到，再用 str() 方法把键转换成字符串再查找一次。</p>
+
 
 
       
@@ -767,7 +769,7 @@ my_dict[key].append(new_value)
             
               <div class="post-toc-content">
     <ol class=nav>
-      <li class="nav-item nav-level-1"> <a class="nav-link" href="#数据类型"> <span class="nav-number">1</span> <span class="nav-text">数据类型</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#bool"> <span class="nav-number">1.1</span> <span class="nav-text">bool</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#自-python-26-开始namedtuple-就加入到-python-里用以构建只有少数属性但是没有方法的对象比如数据库条目"> <span class="nav-number">1.2</span> <span class="nav-text">自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#序列数组"> <span class="nav-number">2</span> <span class="nav-text">序列数组</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#序列"> <span class="nav-number">2.1</span> <span class="nav-text">序列</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#关于迭代器和生成器"> <span class="nav-number">2.2</span> <span class="nav-text">关于迭代器和生成器：</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#初始化多维列表"> <span class="nav-number">2.3</span> <span class="nav-text">初始化多维列表</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#关于序列的增量赋值运算"> <span class="nav-number">2.4</span> <span class="nav-text">关于序列的增量赋值运算</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#元祖"> <span class="nav-number">2.5</span> <span class="nav-text">元祖</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#字典"> <span class="nav-number">3</span> <span class="nav-text">字典</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#创建字典的不同方式"> <span class="nav-number">3.1</span> <span class="nav-text">创建字典的不同方式：</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#减少字典查询次数"> <span class="nav-number">3.2</span> <span class="nav-text">减少字典查询次数：</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#defaultdict"> <span class="nav-number">3.3</span> <span class="nav-text">defaultdict</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#__missing__"> <span class="nav-number">3.4</span> <span class="nav-text">__missing__</span> </a> </li> </ol> </li>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#数据类型"> <span class="nav-number">1</span> <span class="nav-text">数据类型</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#bool"> <span class="nav-number">1.1</span> <span class="nav-text">bool</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#collectionsnamedtuple"> <span class="nav-number">1.2</span> <span class="nav-text">collections.namedtuple</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#序列数组"> <span class="nav-number">2</span> <span class="nav-text">序列数组</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#序列"> <span class="nav-number">2.1</span> <span class="nav-text">序列</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#关于迭代器和生成器"> <span class="nav-number">2.2</span> <span class="nav-text">关于迭代器和生成器：</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#初始化多维列表"> <span class="nav-number">2.3</span> <span class="nav-text">初始化多维列表</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#关于序列的增量赋值运算"> <span class="nav-number">2.4</span> <span class="nav-text">关于序列的增量赋值运算</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#元祖"> <span class="nav-number">2.5</span> <span class="nav-text">元祖</span> </a> </li> </ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#字典"> <span class="nav-number">3</span> <span class="nav-text">字典</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#创建字典的不同方式"> <span class="nav-number">3.1</span> <span class="nav-text">创建字典的不同方式：</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#减少字典查询次数"> <span class="nav-number">3.2</span> <span class="nav-text">减少字典查询次数：</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#defaultdict"> <span class="nav-number">3.3</span> <span class="nav-text">defaultdict</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#__missing__"> <span class="nav-number">3.4</span> <span class="nav-text">__missing__</span> </a> </li> </ol> </li>
     </ol>
   </div>
             
