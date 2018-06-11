@@ -510,7 +510,9 @@ l[2:5] = 100 ➊
 
 <p><strong>3、查看 Python 的字节码并不难，而且它对我们了解代码背后的运行机制很有帮助。</strong></p>
 
-<p>5.创建字典的不同方式：</p>
+<h2 id="字典">字典</h2>
+
+<p>1.创建字典的不同方式：</p>
 <div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13</pre></td><td class="code"><pre class="highlight"><code>&gt;&gt;&gt; a = dict(one=1, two=2, three=3)
 
 &gt;&gt;&gt; b = {'one': 1, 'two': 2, 'three': 3}
@@ -527,12 +529,11 @@ True
 </code></pre></td></tr></tbody></table></div>
 </div>
 
-<p>6.减少字典查询次数：
-这样写</p>
-<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2</pre></td><td class="code"><pre class="highlight"><code>my_dict.setdefault(key, []).append(new_value)
-获取单词的出现情况列表，如果单词不存在，把单词和一个空列表放进映射，然后返回这个空列表，这样就能在不进行第二次查找的情况下更新列表了。
-</code></pre></td></tr></tbody></table></div>
-</div>
+<p>2.减少字典查询次数：
+这样写
+<code class="highlighter-rouge">my_dict.setdefault(key, []).append(new_value)</code></p>
+
+<p><em>获取单词的出现情况列表，如果单词不存在，把单词和一个空列表放进映射，然后返回这个空列表，这样就能在不进行第二次查找的情况下更新列表了。</em></p>
 
 <p>跟这样写：</p>
 <div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code>if key not in my_dict:
@@ -542,8 +543,9 @@ my_dict[key].append(new_value)
 </div>
 <p>二者的效果是一样的，只不过后者至少要进行两次键查询——如果键不存在的话，就是三次，用 setdefault 只需要一次就可以完成整个操作。</p>
 
-<p>7.defaultdict 里的 default_factory 只会在__getitem__ 里被调用，在其他的方法里完全不会发挥作用。比
-如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 创造某个默认值，而 dd.get(k) 则会返回 None。</p>
+<p>3.defaultdict 里的default_factory只会在__getitem__里被调用，在其他的方法里完全不会发挥作用。比如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 的__getitem__ 方法创造某个默认值，而 dd.get(k) 则会返回 None。</p>
+
+<p>4.</p>
 
 
       
@@ -746,7 +748,7 @@ my_dict[key].append(new_value)
             
               <div class="post-toc-content">
     <ol class=nav>
-      <li class="nav-item nav-level-1"> <a class="nav-link" href="#第一章-数据类型"> <span class="nav-number">1</span> <span class="nav-text">第一章 数据类型</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#第二章-序列数组"> <span class="nav-number">2</span> <span class="nav-text">第二章 序列数组</span> </a> </li>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#第一章-数据类型"> <span class="nav-number">1</span> <span class="nav-text">第一章 数据类型</span> </a> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#第二章-序列数组"> <span class="nav-number">2</span> <span class="nav-text">第二章 序列数组</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#字典"> <span class="nav-number">2.1</span> <span class="nav-text">字典</span> </a> </li> </ol> </li>
     </ol>
   </div>
             
