@@ -109,20 +109,20 @@
 
 
 
-<meta name="description" content="第一章 数据类型">
+<meta name="description" content="By Luciano Ramalho">
 <meta name="keywords" content="Jekyll, NexT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fluent python笔记">
 <meta property="og:url" content="http://localhost:4000/python/2018/06/07/fluntpython-note/">
 <meta property="og:site_name" content="By WUJIAJING">
-<meta property="og:description" content="第一章 数据类型">
+<meta property="og:description" content="By Luciano Ramalho">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/12502239-64aa498350f3f65a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/12502239-7efb570c5a3e337e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/12502239-770fd0c03a1d66f2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fluent python笔记">
-<meta name="twitter:description" content="第一章 数据类型">
+<meta name="twitter:description" content="By Luciano Ramalho">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/12502239-64aa498350f3f65a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -297,7 +297,7 @@
     <link itemprop="mainEntityOfPage" href="http://localhost:4000/python/2018/06/07/fluntpython-note/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="巫家竞">
+      <meta itemprop="name" content="WUJIAJING">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="assets/images/avatar.gif">
     </span>
@@ -377,7 +377,7 @@
           
             
                 <div class="post-description">
-                    
+                    By Luciano Ramalho
                 </div>
             
           
@@ -412,7 +412,7 @@
 
 <p>1.bool(x) 的背后是调用x.<strong>bool</strong>() 的结果；如果不存在 <strong>bool</strong> 方法，那么 bool(x) 会尝试调用 x.<strong>len</strong>()。若返回 0，则 bool 会返回 False；否则返回True。</p>
 
-<p><em>bool&gt; <strong>bool</strong>&gt;<strong>len</strong></em></p>
+<p><em>bool&gt; __bool__&gt;__len__</em></p>
 
 <p>2.自 Python 2.6 开始，namedtuple 就加入到 Python 里，用以构建只有少数属性但是没有方法的对象，比如数据库条目。</p>
 
@@ -546,6 +546,26 @@ my_dict[key].append(new_value)
 <p>3.defaultdict 里的default_factory只会在__getitem__里被调用，在其他的方法里完全不会发挥作用。比如，dd 是个 defaultdict，k 是个找不到的键， dd[k] 这个表达式会调用 default_factory 的__getitem__ 方法创造某个默认值，而 dd.get(k) 则会返回 None。</p>
 
 <p>4.</p>
+<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12</pre></td><td class="code"><pre class="highlight"><code>class StrKeyDict0(dict): ➊
+    def __missing__(self, key):
+        if isinstance(key, str): ➋
+            raise KeyError(key)
+        return self[str(key)] ➌
+    def get(self, key, default=None):
+        try:
+            return self[key] ➍
+        except KeyError:
+            return default ➎
+    def __contains__(self, key):
+        return key in self.keys() or str(key) in self.keys() ➏
+</code></pre></td></tr></tbody></table></div>
+</div>
+<p>❶ StrKeyDict0 继承了 dict。
+❷ 如果找不到的键本身就是字符串，那就抛出 KeyError 异常。
+❸ 如果找不到的键不是字符串，那么把它转换成字符串再进行查找。
+❹ get 方法把查找工作用 self[key] 的形式委托给 __getitem__，这样在宣布查找失败之前，还能通过 __missing__ 再给某个键一个机会。
+❺ 如果抛出 KeyError，那么说明 __missing__ 也失败了，于是返回default。
+❻ 先按照传入键的原本的值来查找（我们的映射类型中可能含有非字符串的键），如果没找到，再用 str() 方法把键转换成字符串再查找一次。</p>
 
 
       
@@ -585,10 +605,6 @@ my_dict[key].append(new_value)
       
         <div class="post-nav" id="post-nav-id">
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/python/2018/06/08/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" rel="next" title="课堂笔记">
-                <i class="fa fa-chevron-left"></i> 课堂笔记
-              </a>
             
           </div>
 
@@ -668,8 +684,8 @@ my_dict[key].append(new_value)
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/assets/images/avatar.gif"
-               alt="巫家竞" />
-          <p class="site-author-name" itemprop="name">巫家竞</p>
+               alt="WUJIAJING" />
+          <p class="site-author-name" itemprop="name">WUJIAJING</p>
            
               <p class="site-description motion-element" itemprop="description">Because it is there.</p>
           
@@ -679,7 +695,7 @@ my_dict[key].append(new_value)
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -690,7 +706,7 @@ my_dict[key].append(new_value)
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -777,7 +793,7 @@ my_dict[key].append(new_value)
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">巫家竞</span>
+  <span class="author" itemprop="copyrightHolder">WUJIAJING</span>
 </div>
 
 
