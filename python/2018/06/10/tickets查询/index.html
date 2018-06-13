@@ -437,6 +437,151 @@
 
 <p>难点在于构造请求网址，同样通过分析js文件后获得列表对应的编号，主要是每趟列车的始发站和到达站格式为int形式，不同于初始请求的车站缩写。</p>
 
+<p>源码</p>
+
+<div class="language-python highlighter-rouge">
+<div class="highlight"><table style="margin: 0px"><tbody><tr>
+<td class="gutter"><pre>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136</pre></td>
+<td class="code"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">urllib3</span>
+<span class="kn">import</span> <span class="nn">stations</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+
+<span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">(</span><span class="n">urllib3</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">InsecureRequestWarning</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">TrainCollection</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="s">'车次 车站 时间 历时 商务座 一等座 二等座 高级软卧 软卧 动卧 硬卧 软座 硬座 无座 其他'</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="n">price_temp</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s">'https://kyfw.12306.cn/otn/leftTicket/'</span>
+        <span class="s">'queryTicketPrice?train_no={}&amp;'</span>
+        <span class="s">'from_station_no={}&amp;'</span>
+        <span class="s">'to_station_no={}&amp;'</span>
+        <span class="s">'seat_types={}&amp;'</span>
+        <span class="s">'train_date={}'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_trains</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_trains</span> <span class="o">=</span> <span class="n">raw_trains</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span>
+
+    <span class="k">def</span> <span class="nf">get_from_to_station_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_list</span><span class="p">):</span>
+        <span class="n">from_station_telecode</span> <span class="o">=</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+        <span class="n">to_station_telecode</span> <span class="o">=</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+        <span class="k">return</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">stations</span><span class="o">.</span><span class="n">get_name</span><span class="p">(</span><span class="n">from_station_telecode</span><span class="p">),</span> <span class="n">stations</span><span class="o">.</span><span class="n">get_name</span><span class="p">(</span><span class="n">to_station_telecode</span><span class="p">)])</span>
+
+    <span class="k">def</span> <span class="nf">get_start_arrive_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">data_list</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">9</span><span class="p">]])</span>
+
+    <span class="k">def</span> <span class="nf">parse_train_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_list</span><span class="p">):</span>
+        <span class="c"># get_price(self, data_list)</span>
+        <span class="c"># print(data_list)</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s">"station_train_code"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+            <span class="s">"from_to_station_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_from_to_station_name</span><span class="p">(</span><span class="n">data_list</span><span class="p">),</span>
+            <span class="s">"start_arrive_time"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_start_arrive_time</span><span class="p">(</span><span class="n">data_list</span><span class="p">),</span>
+            <span class="s">"lishi"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span>
+            <span class="s">"business_class_seat"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span><span class="p">,</span>
+            <span class="s">"first_class_seat"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span><span class="p">,</span>
+            <span class="s">"second_class_seat"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">30</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span><span class="p">,</span>
+            <span class="s">"super_soft_sleep"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span><span class="p">,</span>
+            <span class="s">"soft_sleep"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">23</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span><span class="p">,</span>
+            <span class="s">"dong_sleep"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">33</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span><span class="p">,</span>
+            <span class="s">"hard_sleep"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">28</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span><span class="p">,</span>
+            <span class="s">"soft_seat"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">24</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span><span class="p">,</span>
+            <span class="s">"hard_seat"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">29</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span><span class="p">,</span>
+            <span class="s">"no_seat"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">26</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span><span class="p">,</span>
+            <span class="s">"other"</span><span class="p">:</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">22</span><span class="p">]</span> <span class="ow">or</span> <span class="s">'--'</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">need_print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_list</span><span class="p">):</span>
+        <span class="n">station_train_code</span> <span class="o">=</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">initial</span> <span class="o">=</span> <span class="n">station_train_code</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="ow">or</span> <span class="n">initial</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">trains</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">get_price</span><span class="p">():</span>
+            <span class="n">price_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">price_temp</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_list</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">data_list</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">data_list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+            <span class="n">r_p</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">price_url</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">r_p</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s">'data'</span><span class="p">])</span>
+            <span class="c"># price = r_p.json()['data']</span>
+
+        <span class="k">for</span> <span class="n">train</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_trains</span><span class="p">:</span>
+            <span class="n">data_list</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'|'</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">need_print</span><span class="p">(</span><span class="n">data_list</span><span class="p">):</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">get_price</span><span class="p">)</span>
+                <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_train_data</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">search_out</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">train</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trains</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"station_train_code"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"from_to_station_name"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"start_arrive_time"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"lishi"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"business_class_seat"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"first_class_seat"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"second_class_seat"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"super_soft_sleep"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"soft_sleep"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"dong_sleep"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"hard_sleep"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"soft_seat"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"hard_seat"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"no_seat"</span><span class="p">],</span>
+                <span class="n">train</span><span class="p">[</span><span class="s">"other"</span><span class="p">]</span>
+            <span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">class</span> <span class="nc">Cli</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">url_template</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s">'https://kyfw.12306.cn/otn/leftTicket/query?'</span>
+        <span class="s">'leftTicketDTO.train_date={}&amp;'</span>
+        <span class="s">'leftTicketDTO.from_station={}&amp;'</span>
+        <span class="s">'leftTicketDTO.to_station={}&amp;'</span>
+        <span class="s">'purpose_codes=ADULT'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_station</span><span class="p">,</span> <span class="n">to_station</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{}):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span> <span class="o">=</span> <span class="p">{</span><span class="s">'from_station'</span><span class="p">:</span> <span class="n">from_station</span><span class="p">,</span> <span class="s">'to_station'</span><span class="p">:</span> <span class="n">to_station</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">from_station</span> <span class="o">=</span> <span class="n">stations</span><span class="o">.</span><span class="n">get_telecode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="s">'from_station'</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">to_station</span> <span class="o">=</span> <span class="n">stations</span><span class="o">.</span><span class="n">get_telecode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="s">'to_station'</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_arguments_validatity</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">request_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">url_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_station</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_station</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">check_arguments_validatity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_station</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_station</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="nb">ValueError</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">ValueError</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request_url</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">trains</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s">'data'</span><span class="p">][</span><span class="s">'result'</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">TrainCollection</span><span class="p">(</span><span class="n">trains</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="p">)</span><span class="o">.</span><span class="n">search_out</span><span class="p">()</span>
+
+<span class="c"># Cli('北京','上海','2018-06-17').run()</span>
+
+</code></pre></td>
+</tr></tbody></table></div>
+</div>
+
 <p>To be continued… <img class="emoji" title=":runner:" alt=":runner:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3c3.png" height="20" width="20" align="absmiddle"></p>
 
 
