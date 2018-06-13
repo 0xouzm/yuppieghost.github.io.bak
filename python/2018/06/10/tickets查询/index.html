@@ -98,13 +98,13 @@
 <meta name="description" content="查询">
 <meta name="keywords" content="Jekyll, NexT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="火车票查询系统开发文档">
+<meta property="og:title" content="火车票查询系统开发">
 <meta property="og:url" content="http://localhost:4000/python/2018/06/10/tickets%E6%9F%A5%E8%AF%A2/">
 <meta property="og:site_name" content="By WUJIAJING">
 <meta property="og:description" content="查询">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="火车票查询系统开发文档">
+<meta name="twitter:title" content="火车票查询系统开发">
 <meta name="twitter:description" content="查询">
 
 
@@ -138,7 +138,7 @@
 
 
 
-  <title>火车票查询系统开发文档 | By WUJIAJING</title>
+  <title>火车票查询系统开发 | By WUJIAJING</title>
   
 
 
@@ -296,7 +296,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            火车票查询系统开发文档
+            火车票查询系统开发
           
         </h1>
         
@@ -388,7 +388,56 @@
 
 
 
-  <p>To be continued… <img class="emoji" title=":runner:" alt=":runner:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3c3.png" height="20" width="20" align="absmiddle"></p>
+  <h2 id="6月13日">6月13日</h2>
+<h3 id="列车信息模块">列车信息模块</h3>
+<ul>
+  <li>对车站名称、车站编号进行获取</li>
+</ul>
+
+<p>通过分析12306查询响应找到jquery地址，构造正则表达式进行匹配获得字典</p>
+
+<div class="language-python highlighter-rouge">
+<div class="highlight"><table style="margin: 0px"><tbody><tr>
+<td class="gutter"><pre>1<br>2<br>3<br>4</pre></td>
+<td class="code"><pre class="highlight"><code><span class="n">url</span> <span class="o">=</span> <span class="s">'https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9055'</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">patter</span> <span class="o">=</span> <span class="s">u'([</span><span class="se">\u4e00</span><span class="s">-</span><span class="se">\u9fa5</span><span class="s">]+)</span><span class="err">\</span><span class="s">|([A-Z]+)'</span> 	<span class="c">#unicode格式编码</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">patter</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+</code></pre></td>
+</tr></tbody></table></div>
+</div>
+
+<p>对字典键值对进行拆分获得车站名称和车站简写两个列表，构造函数方便互相取值</p>
+
+<ul>
+  <li>对得到的列车信息进行提取</li>
+</ul>
+
+<div class="language-python highlighter-rouge">
+<div class="highlight"><table style="margin: 0px"><tbody><tr>
+<td class="gutter"><pre>1</pre></td>
+<td class="code"><pre class="highlight"><code><span class="n">trains</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s">'data'</span><span class="p">][</span><span class="s">'result'</span><span class="p">]</span>
+</code></pre></td>
+</tr></tbody></table></div>
+</div>
+
+<p>构造好请求地址后返回json对象，通过上面的格式获取raw_trains</p>
+
+<p>将参数、raw_trains 传入TrainCollection类里，进行下一步提取</p>
+
+<p>将得到的raw_trains用split(‘|‘)分割，得到列车信息列表，对比12306的js文件得到需要的信息</p>
+
+<p>如果满足参数要求，构造生成器，返回parse_train_data函数处理好后的列车信息</p>
+
+<p>得到列车信息列表，返回给tkinter输出</p>
+
+<h3 id="车票价格模块">车票价格模块</h3>
+
+<p>同样分析12306网站响应，发现票价查询有两个页面，一个是单独查询所有票价，需要输入验证码，另外一个是在列车信息界面点击通过ajax请求获得点击的这行列车各个坐席的价格，验证码放到登录界面攻破，所以选择第二种方式，构造jquery请求网址，导入threading 模块，一次性获得查询趟次所有列车价格。</p>
+
+<p>难点在于构造请求网址，同样通过分析js文件后获得列表对应的编号，主要是每趟列车的始发站和到达站格式为int形式，不同于初始请求的车站缩写。</p>
+
+<p>To be continued… <img class="emoji" title=":runner:" alt=":runner:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3c3.png" height="20" width="20" align="absmiddle"></p>
 
 
       
@@ -493,8 +542,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/assets/images/avatar.gif" alt="WUJIAJING">
           <p class="site-author-name" itemprop="name">WUJIAJING</p>
@@ -556,6 +614,34 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class="nav">
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#6%E6%9C%8813%E6%97%A5"> <span class="nav-number">1</span> <span class="nav-text">6月13日</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#%E5%88%97%E8%BD%A6%E4%BF%A1%E6%81%AF%E6%A8%A1%E5%9D%97"> <span class="nav-number">1.1</span> <span class="nav-text">列车信息模块</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#%E8%BD%A6%E7%A5%A8%E4%BB%B7%E6%A0%BC%E6%A8%A1%E5%9D%97"> <span class="nav-number">1.2</span> <span class="nav-text">车票价格模块</span> </a> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

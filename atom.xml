@@ -1,4 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-13T19:40:22+08:00</updated><id>http://localhost:4000/</id><title type="html">By WUJIAJING</title><subtitle>Because it is there.</subtitle><author><name>WUJIAJING</name></author><entry><title type="html">火车票查询系统开发文档</title><link href="http://localhost:4000/python/2018/06/10/tickets%E6%9F%A5%E8%AF%A2/" rel="alternate" type="text/html" title="火车票查询系统开发文档" /><published>2018-06-10T08:14:39+08:00</published><updated>2018-06-10T08:14:39+08:00</updated><id>http://localhost:4000/python/2018/06/10/tickets%E6%9F%A5%E8%AF%A2</id><content type="html" xml:base="http://localhost:4000/python/2018/06/10/tickets%E6%9F%A5%E8%AF%A2/">&lt;p&gt;To be continued… :runner:&lt;/p&gt;</content><author><name>WUJIAJING</name></author><summary type="html">To be continued… :runner:</summary></entry><entry><title type="html">fluent python笔记</title><link href="http://localhost:4000/python/2018/06/07/fluntpython-note/" rel="alternate" type="text/html" title="fluent python笔记" /><published>2018-06-07T08:14:39+08:00</published><updated>2018-06-07T08:14:39+08:00</updated><id>http://localhost:4000/python/2018/06/07/fluntpython-note</id><content type="html" xml:base="http://localhost:4000/python/2018/06/07/fluntpython-note/">&lt;h1 id=&quot;数据类型&quot;&gt;数据类型&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-13T20:17:19+08:00</updated><id>http://localhost:4000/</id><title type="html">By WUJIAJING</title><subtitle>Because it is there.</subtitle><author><name>WUJIAJING</name></author><entry><title type="html">火车票查询系统开发</title><link href="http://localhost:4000/python/2018/06/10/tickets%E6%9F%A5%E8%AF%A2/" rel="alternate" type="text/html" title="火车票查询系统开发" /><published>2018-06-10T08:14:39+08:00</published><updated>2018-06-10T08:14:39+08:00</updated><id>http://localhost:4000/python/2018/06/10/tickets%E6%9F%A5%E8%AF%A2</id><content type="html" xml:base="http://localhost:4000/python/2018/06/10/tickets%E6%9F%A5%E8%AF%A2/">&lt;h2 id=&quot;6月13日&quot;&gt;6月13日&lt;/h2&gt;
+&lt;h3 id=&quot;列车信息模块&quot;&gt;列车信息模块&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;对车站名称、车站编号进行获取&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;通过分析12306查询响应找到jquery地址，构造正则表达式进行匹配获得字典&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9055'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;patter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'([&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u4e00&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u9fa5&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;]+)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;|([A-Z]+)'&lt;/span&gt; 	&lt;span class=&quot;c&quot;&gt;#unicode格式编码&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;findall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;对字典键值对进行拆分获得车站名称和车站简写两个列表，构造函数方便互相取值&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;对得到的列车信息进行提取&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;trains&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'result'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;构造好请求地址后返回json对象，通过上面的格式获取raw_trains&lt;/p&gt;
+
+&lt;p&gt;将参数、raw_trains 传入TrainCollection类里，进行下一步提取&lt;/p&gt;
+
+&lt;p&gt;将得到的raw_trains用split(‘|‘)分割，得到列车信息列表，对比12306的js文件得到需要的信息&lt;/p&gt;
+
+&lt;p&gt;如果满足参数要求，构造生成器，返回parse_train_data函数处理好后的列车信息&lt;/p&gt;
+
+&lt;p&gt;得到列车信息列表，返回给tkinter输出&lt;/p&gt;
+
+&lt;h3 id=&quot;车票价格模块&quot;&gt;车票价格模块&lt;/h3&gt;
+
+&lt;p&gt;同样分析12306网站响应，发现票价查询有两个页面，一个是单独查询所有票价，需要输入验证码，另外一个是在列车信息界面点击通过ajax请求获得点击的这行列车各个坐席的价格，验证码放到登录界面攻破，所以选择第二种方式，构造jquery请求网址，导入threading 模块，一次性获得查询趟次所有列车价格。&lt;/p&gt;
+
+&lt;p&gt;难点在于构造请求网址，同样通过分析js文件后获得列表对应的编号，主要是每趟列车的始发站和到达站格式为int形式，不同于初始请求的车站缩写。&lt;/p&gt;
+
+&lt;p&gt;To be continued… :runner:&lt;/p&gt;</content><author><name>WUJIAJING</name></author><summary type="html">6月13日 列车信息模块 对车站名称、车站编号进行获取 通过分析12306查询响应找到jquery地址，构造正则表达式进行匹配获得字典 url = 'https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9055' r = requests.get(url) patter = u'([\u4e00-\u9fa5]+)\|([A-Z]+)' #unicode格式编码 result = dict(re.findall(patter, r.text)) 对字典键值对进行拆分获得车站名称和车站简写两个列表，构造函数方便互相取值 对得到的列车信息进行提取 trains = r.json()['data']['result'] 构造好请求地址后返回json对象，通过上面的格式获取raw_trains 将参数、raw_trains 传入TrainCollection类里，进行下一步提取 将得到的raw_trains用split(‘|‘)分割，得到列车信息列表，对比12306的js文件得到需要的信息 如果满足参数要求，构造生成器，返回parse_train_data函数处理好后的列车信息 得到列车信息列表，返回给tkinter输出 车票价格模块 同样分析12306网站响应，发现票价查询有两个页面，一个是单独查询所有票价，需要输入验证码，另外一个是在列车信息界面点击通过ajax请求获得点击的这行列车各个坐席的价格，验证码放到登录界面攻破，所以选择第二种方式，构造jquery请求网址，导入threading 模块，一次性获得查询趟次所有列车价格。 难点在于构造请求网址，同样通过分析js文件后获得列表对应的编号，主要是每趟列车的始发站和到达站格式为int形式，不同于初始请求的车站缩写。 To be continued… :runner:</summary></entry><entry><title type="html">fluent python笔记</title><link href="http://localhost:4000/python/2018/06/07/fluntpython-note/" rel="alternate" type="text/html" title="fluent python笔记" /><published>2018-06-07T08:14:39+08:00</published><updated>2018-06-07T08:14:39+08:00</updated><id>http://localhost:4000/python/2018/06/07/fluntpython-note</id><content type="html" xml:base="http://localhost:4000/python/2018/06/07/fluntpython-note/">&lt;h1 id=&quot;数据类型&quot;&gt;数据类型&lt;/h1&gt;
 
 &lt;hr /&gt;
 
