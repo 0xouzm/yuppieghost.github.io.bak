@@ -98,13 +98,13 @@
 <meta name="description" content="中期项目">
 <meta name="keywords" content="Jekyll, NexT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="火车票查询系统开发">
-<meta property="og:url" content="http://localhost:4000/python/2018/06/10/tickets%E6%9F%A5%E8%AF%A2/">
+<meta property="og:title" content="火车票查询购票软件开发">
+<meta property="og:url" content="http://localhost:4000/python/2018/06/10/tickets/">
 <meta property="og:site_name" content="By WUJIAJING">
 <meta property="og:description" content="中期项目">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="火车票查询系统开发">
+<meta name="twitter:title" content="火车票查询购票软件开发">
 <meta name="twitter:description" content="中期项目">
 
 
@@ -138,7 +138,7 @@
 
 
 
-  <title>火车票查询系统开发 | By WUJIAJING</title>
+  <title>火车票查询购票软件开发 | By WUJIAJING</title>
   
 
 
@@ -276,7 +276,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/python/2018/06/10/tickets%E6%9F%A5%E8%AF%A2/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/python/2018/06/10/tickets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WUJIAJING">
@@ -296,7 +296,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            火车票查询系统开发
+            火车票查询购票软件开发
           
         </h1>
         
@@ -389,7 +389,7 @@
 
 
   <h2 id="6月13日">6月13日</h2>
-<h3 id="列车信息模块">列车信息模块</h3>
+<h4 id="列车信息模块">列车信息模块</h4>
 <ul>
   <li>对车站名称、车站编号进行获取</li>
 </ul>
@@ -431,7 +431,7 @@
 
 <p>得到列车信息列表，返回给tkinter输出</p>
 
-<h3 id="车票价格模块">车票价格模块</h3>
+<h4 id="车票价格模块">车票价格模块</h4>
 
 <p>同样分析12306网站响应，发现票价查询有两个页面，一个是单独查询所有票价，需要输入验证码，另外一个是在列车信息界面点击通过ajax请求获得点击的这行列车各个坐席的价格，验证码放到登录界面攻破，所以选择第二种方式，构造jquery请求网址，导入threading 模块，一次性获得查询趟次所有列车价格。</p>
 
@@ -459,6 +459,68 @@
 <p>综合对比过后，这是时间最短的一种方法，但当车次过多时等待时长还是较多。考虑tkinter实现多进程接收数据，让主菜单不至于卡死。</p>
 
 <p>在开发到票价查询时，因为多次请求api，发现12306做了反爬机制会返回403错误，所以要完善查询功能还待进一步学习代理技术。</p>
+
+<h2 id="6月20日">6月20日</h2>
+<h4 id="近期总结">近期总结</h4>
+
+<p>端午节过完了，后台程序也写得差不多了，写一下遇到的坑</p>
+
+<p>排除了上次写的一次获取所有价格方案，（虽然多线程那里搞出来的时候还挺开心的，但是全部扔掉）决定在界面中实现用户点击单次列车进行价格查询，性能更高，程序更稳定。</p>
+
+<h4 id="登录模块">登录模块</h4>
+
+<ul>
+  <li>
+    <p>验证码</p>
+
+    <p>由于12306验证码过于变态，涉及到机器学习进行图片验证，所以直接请求验证码接口进行用户本地验证</p>
+
+    <p>创建8个本地列表坐标，获取用户选择的图片后将构造好的坐标与用户名密码一起发送给登录接口</p>
+  </li>
+  <li>
+    <p>登录验证</p>
+
+    <p>用fiddler抓包，居然有f12获取不到的数据，发现12306对用户名密码有两次验证，</p>
+
+    <p>用第一次请求<code class="highlighter-rouge">https://kyfw.12306.cn/passport/web/auth/uamtk</code>得到的apptk发送给<code class="highlighter-rouge">https://kyfw.12306.cn/otn/uamauthclient</code>,登录验证成功</p>
+  </li>
+</ul>
+
+<h4 id="订票购票模块">订票购票模块</h4>
+
+<ul>
+  <li>
+    <p>订票功能</p>
+
+    <p>登录查票之后点击预订按钮进行抓包分析，发现需要构造一个带sec字符串的json对象，这个sec串是在查询界面请求到的列车信息里的下标为0的元素，为了实现预订请求，把查询列车信息模块进行调整，传给界面的时候将整个分割后的data_list作为参数传递，方便订票时获取对应信息。</p>
+
+    <p>这里还需要当日的日期，格式按照0000-00-00，所以用到了time模块下的strftime,localtime对time.time()进行格式化</p>
+  </li>
+  <li>
+    <p>获取余票信息</p>
+
+    <p>这一块考察对页面获取到的信息进行筛选能力，多处用到正则，</p>
+
+    <p>其中余票数量让我最纠结，最后通过下列代码成功得到需要的数据</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><table style="margin: 0px"><tbody><tr>
+<td class="gutter"><pre>1</pre></td>
+<td class="code"><pre class="highlight"><code><span class="n">ticket_num</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r"</span><span class="err">\</span><span class="s">w+num</span><span class="err">\</span><span class="s">':</span><span class="err">\</span><span class="s">'[1-9]</span><span class="err">\</span><span class="s">d*</span><span class="err">\</span><span class="s">'"</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+</code></pre></td>
+</tr></tbody></table></div>
+    </div>
+
+    <p>正则真的是，神器</p>
+  </li>
+  <li>
+    <p>剩下的就是依次请求接口获取下个接口需要的数据，也没什么好写的</p>
+  </li>
+</ul>
+
+<p>查询界面出来之后软件感觉瞬间成型了一半，这几天还有一点让我学习的是如何协调后台程序的参数和gui界面的显示，我把原来的函数封装了几个类，另外写了一个主函数用来对各个界面以及后台功能函数的互相调用，这样运行逻辑更清晰。</p>
+
+<p>剩下的就是和界面加入主函数后互相进行调试。。。</p>
 
 <p>To be continued… <img class="emoji" title=":runner:" alt=":runner:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3c3.png" height="20" width="20" align="absmiddle"></p>
 
@@ -657,7 +719,7 @@
             
               <div class="post-toc-content">
     <ol class="nav">
-      <li class="nav-item nav-level-2"> <a class="nav-link" href="#6%E6%9C%8813%E6%97%A5"> <span class="nav-number">1</span> <span class="nav-text">6月13日</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#%E5%88%97%E8%BD%A6%E4%BF%A1%E6%81%AF%E6%A8%A1%E5%9D%97"> <span class="nav-number">1.1</span> <span class="nav-text">列车信息模块</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#%E8%BD%A6%E7%A5%A8%E4%BB%B7%E6%A0%BC%E6%A8%A1%E5%9D%97"> <span class="nav-number">1.2</span> <span class="nav-text">车票价格模块</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#6%E6%9C%8814%E6%97%A5"> <span class="nav-number">2</span> <span class="nav-text">6月14日</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%BB%B7%E6%A0%BC%E8%8E%B7%E5%8F%96%E9%97%AE%E9%A2%98"> <span class="nav-number">2.1</span> <span class="nav-text">解决价格获取问题</span> </a> </li> </ol> </li>
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#6%E6%9C%8813%E6%97%A5"> <span class="nav-number">1</span> <span class="nav-text">6月13日</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E5%88%97%E8%BD%A6%E4%BF%A1%E6%81%AF%E6%A8%A1%E5%9D%97"> <span class="nav-number">1.1</span> <span class="nav-text">列车信息模块</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E8%BD%A6%E7%A5%A8%E4%BB%B7%E6%A0%BC%E6%A8%A1%E5%9D%97"> <span class="nav-number">1.2</span> <span class="nav-text">车票价格模块</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#6%E6%9C%8814%E6%97%A5"> <span class="nav-number">2</span> <span class="nav-text">6月14日</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%BB%B7%E6%A0%BC%E8%8E%B7%E5%8F%96%E9%97%AE%E9%A2%98"> <span class="nav-number">2.1</span> <span class="nav-text">解决价格获取问题</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#6%E6%9C%8820%E6%97%A5"> <span class="nav-number">3</span> <span class="nav-text">6月20日</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93"> <span class="nav-number">3.1</span> <span class="nav-text">近期总结</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E7%99%BB%E5%BD%95%E6%A8%A1%E5%9D%97"> <span class="nav-number">3.2</span> <span class="nav-text">登录模块</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E8%AE%A2%E7%A5%A8%E8%B4%AD%E7%A5%A8%E6%A8%A1%E5%9D%97"> <span class="nav-number">3.3</span> <span class="nav-text">订票购票模块</span> </a> </li> </ol> </li>
     </ol>
   </div>
             
