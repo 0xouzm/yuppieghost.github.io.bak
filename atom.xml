@@ -1,4 +1,195 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-07-02T15:45:47+08:00</updated><id>http://localhost:4000/</id><title type="html">By WUJIAJING</title><subtitle>Because it is there.</subtitle><author><name>WUJIAJING</name></author><entry><title type="html">python中os/sys常用方法</title><link href="http://localhost:4000/python/2018/06/26/os%E5%92%8Csys/" rel="alternate" type="text/html" title="python中os/sys常用方法" /><published>2018-06-26T03:25:39+08:00</published><updated>2018-06-26T03:25:39+08:00</updated><id>http://localhost:4000/python/2018/06/26/os%E5%92%8Csys</id><content type="html" xml:base="http://localhost:4000/python/2018/06/26/os%E5%92%8Csys/">&lt;h2 id=&quot;sys模块提供了访问或操作与python解释器相关方法与对象&quot;&gt;sys模块提供了访问或操作与python解释器相关方法与对象。&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-07-03T16:16:28+08:00</updated><id>http://localhost:4000/</id><title type="html">By WUJIAJING</title><subtitle>Because it is there.</subtitle><author><name>WUJIAJING</name></author><entry><title type="html">iterview</title><link href="http://localhost:4000/python/2018/07/03/interview/" rel="alternate" type="text/html" title="iterview" /><published>2018-07-03T00:16:00+08:00</published><updated>2018-07-03T00:16:00+08:00</updated><id>http://localhost:4000/python/2018/07/03/interview</id><content type="html" xml:base="http://localhost:4000/python/2018/07/03/interview/">&lt;h1 id=&quot;python基础&quot;&gt;Python基础&lt;/h1&gt;
+
+&lt;h2 id=&quot;基础语法&quot;&gt;基础语法&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;a=a^b&lt;/p&gt;
+
+    &lt;p&gt;b=b^a&lt;/p&gt;
+
+    &lt;p&gt;a=a^b&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;修改不可变类型 TypeError&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;print 调用 sys.stdout.write方法&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;小内存读取大文件：&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'file.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;60000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;通过&lt;strong&gt;生成器&lt;/strong&gt;，分多次读取，每次读取数量相对少的数据进行处理&lt;/p&gt;
+
+    &lt;p&gt;要考虑的问题： 分批读入数据要记录每次读入数据的位置；分批每次读入数据的大小，太小会在读取操作上耗费过多时间。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;read、readline、readlines的区别？&lt;/p&gt;
+
+    &lt;p&gt;read:读取整个文件&lt;/p&gt;
+
+    &lt;p&gt;readline:读取下一行，使用生成器方法&lt;/p&gt;
+
+    &lt;p&gt;readlines:读取整个文件到一个迭代器供我们遍历（可指定行数）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;linux&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;这个函数接收文件夹的路径作为输入参数&lt;/li&gt;
+      &lt;li&gt;返回该文件夹中文件的路径&lt;/li&gt;
+      &lt;li&gt;以及其包含文件夹中文件的路径&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_directory_contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sChild&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sChildPath&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sChildPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;print_directory_contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sChildPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sChildPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;常用的Python标准库：&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;os&lt;/li&gt;
+      &lt;li&gt;time&lt;/li&gt;
+      &lt;li&gt;random&lt;/li&gt;
+      &lt;li&gt;pymysql&lt;/li&gt;
+      &lt;li&gt;threading&lt;/li&gt;
+      &lt;li&gt;multiprocessing&lt;/li&gt;
+      &lt;li&gt;queue&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;浅拷贝（shallow copy）&lt;/p&gt;
+
+    &lt;p&gt;浅拷贝会创建新对象，其内容非原对象本身的引用，而是原对象内第一层对象的引用。&lt;/p&gt;
+
+    &lt;p&gt;浅拷贝有三种形式：&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;切片操作: b=a[:] or b = [x for x in a]&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;工厂模式: b=list(a)&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;copy: b=copy.copy(a)&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;os模块常见方法&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.remove()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.rename()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.walk()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.chdir()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.mkdir/makedirs&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.rmdir/removedirs&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.listdir()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.getcwd()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.chmod()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.path.basename()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.path.dirname()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.path.join()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.path.split()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.path.getsize()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.path.exists()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.path.isabs()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.path.isdir()&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;os.path.isfile()&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;sys 常用方法&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;sys.argv&lt;/li&gt;
+      &lt;li&gt;sys.modules.keys()&lt;/li&gt;
+      &lt;li&gt;sys.exc_info()&lt;/li&gt;
+      &lt;li&gt;sys.exit(n)&lt;/li&gt;
+      &lt;li&gt;sys.version&lt;/li&gt;
+      &lt;li&gt;sys.maxint&lt;/li&gt;
+      &lt;li&gt;sys.maxunicode&lt;/li&gt;
+      &lt;li&gt;sys.modules&lt;/li&gt;
+      &lt;li&gt;sys.path&lt;/li&gt;
+      &lt;li&gt;sys.platform&lt;/li&gt;
+      &lt;li&gt;sys.stdout&lt;/li&gt;
+      &lt;li&gt;sys.stdin&lt;/li&gt;
+      &lt;li&gt;sys.stderr&lt;/li&gt;
+      &lt;li&gt;sys.exc_clear&lt;/li&gt;
+      &lt;li&gt;sys.exec_prefix&lt;/li&gt;
+      &lt;li&gt;sys.byteorder&lt;/li&gt;
+      &lt;li&gt;sys.copyright&lt;/li&gt;
+      &lt;li&gt;sys.api_version&lt;/li&gt;
+      &lt;li&gt;sys.version_info&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Python 是强语言类型还是弱语言类型？&lt;/p&gt;
+
+    &lt;p&gt;Python 是强类型的动态脚本语言。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;强类型：不允许不同类型相加。&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;动态：不使用显示数据类型声明，确定一个变量的类型是第一次给它赋值的时候。&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;脚本语言： 一般也是解释性语言，运行代码只需要一个解释器，不需要编译。&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>WUJIAJING</name></author><category term="面试" /><summary type="html">Python基础 基础语法 a=a^b b=b^a a=a^b 修改不可变类型 TypeError print 调用 sys.stdout.write方法 小内存读取大文件： def get_lines(): l=[] with open('file.txt','rb') as f: data = f.readlines(60000) l.append(data) yield l 通过生成器，分多次读取，每次读取数量相对少的数据进行处理 要考虑的问题： 分批读入数据要记录每次读入数据的位置；分批每次读入数据的大小，太小会在读取操作上耗费过多时间。 read、readline、readlines的区别？ read:读取整个文件 readline:读取下一行，使用生成器方法 readlines:读取整个文件到一个迭代器供我们遍历（可指定行数） linux 这个函数接收文件夹的路径作为输入参数 返回该文件夹中文件的路径 以及其包含文件夹中文件的路径 def print_directory_contents(sPath): import os for sChild in os.listdir(sPath): sChildPath = os.path.join(sPath,sChild) if os.path.isdir(sChildPath): print_directory_contents(sChildPath) else: print(sChildPath) 常用的Python标准库： os time random pymysql threading multiprocessing queue 浅拷贝（shallow copy） 浅拷贝会创建新对象，其内容非原对象本身的引用，而是原对象内第一层对象的引用。 浅拷贝有三种形式： 切片操作: b=a[:] or b = [x for x in a] 工厂模式: b=list(a) copy: b=copy.copy(a) os模块常见方法 os.remove() os.rename() os.walk() os.chdir() os.mkdir/makedirs os.rmdir/removedirs os.listdir() os.getcwd() os.chmod() os.path.basename() os.path.dirname() os.path.join() os.path.split() os.path.getsize() os.path.exists() os.path.isabs() os.path.isdir() os.path.isfile() sys 常用方法 sys.argv sys.modules.keys() sys.exc_info() sys.exit(n) sys.version sys.maxint sys.maxunicode sys.modules sys.path sys.platform sys.stdout sys.stdin sys.stderr sys.exc_clear sys.exec_prefix sys.byteorder sys.copyright sys.api_version sys.version_info Python 是强语言类型还是弱语言类型？ Python 是强类型的动态脚本语言。 强类型：不允许不同类型相加。 动态：不使用显示数据类型声明，确定一个变量的类型是第一次给它赋值的时候。 脚本语言： 一般也是解释性语言，运行代码只需要一个解释器，不需要编译。</summary></entry><entry><title type="html">python中os/sys常用方法</title><link href="http://localhost:4000/python/2018/06/26/os%E5%92%8Csys/" rel="alternate" type="text/html" title="python中os/sys常用方法" /><published>2018-06-26T03:25:39+08:00</published><updated>2018-06-26T03:25:39+08:00</updated><id>http://localhost:4000/python/2018/06/26/os%E5%92%8Csys</id><content type="html" xml:base="http://localhost:4000/python/2018/06/26/os%E5%92%8Csys/">&lt;h2 id=&quot;sys模块提供了访问或操作与python解释器相关方法与对象&quot;&gt;sys模块提供了访问或操作与python解释器相关方法与对象。&lt;/h2&gt;
 
 &lt;h2 id=&quot;几个常用到的动态对象&quot;&gt;几个常用到的动态对象：&lt;/h2&gt;
 
