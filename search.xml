@@ -3,7 +3,7 @@
   
     <entry>
       <title>Linux下的tar压缩解压缩命令详解</title>
-      <url>/python/2018/07/04/Python%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95-(%E5%A4%8D%E4%BB%B6)/</url>
+      <url>/python/2018/07/04/tar/</url>
       <content type="text">tar
 
 -c: 建立压缩档案
