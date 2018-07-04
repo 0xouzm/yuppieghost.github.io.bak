@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-07-03T16:16:28+08:00</updated><id>http://localhost:4000/</id><title type="html">By WUJIAJING</title><subtitle>Because it is there.</subtitle><author><name>WUJIAJING</name></author><entry><title type="html">iterview</title><link href="http://localhost:4000/python/2018/07/03/interview/" rel="alternate" type="text/html" title="iterview" /><published>2018-07-03T00:16:00+08:00</published><updated>2018-07-03T00:16:00+08:00</updated><id>http://localhost:4000/python/2018/07/03/interview</id><content type="html" xml:base="http://localhost:4000/python/2018/07/03/interview/">&lt;h1 id=&quot;python基础&quot;&gt;Python基础&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-07-04T09:45:30+08:00</updated><id>http://localhost:4000/</id><title type="html">By WUJIAJING</title><subtitle>Because it is there.</subtitle><author><name>WUJIAJING</name></author><entry><title type="html">Python总结</title><link href="http://localhost:4000/python/2018/07/03/interview/" rel="alternate" type="text/html" title="Python总结" /><published>2018-07-03T00:16:00+08:00</published><updated>2018-07-03T00:16:00+08:00</updated><id>http://localhost:4000/python/2018/07/03/interview</id><content type="html" xml:base="http://localhost:4000/python/2018/07/03/interview/">&lt;h1 id=&quot;python基础&quot;&gt;Python基础&lt;/h1&gt;
 
 &lt;h2 id=&quot;基础语法&quot;&gt;基础语法&lt;/h2&gt;
 
@@ -189,7 +189,78 @@
 
     &lt;p&gt;&lt;strong&gt;脚本语言： 一般也是解释性语言，运行代码只需要一个解释器，不需要编译。&lt;/strong&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>WUJIAJING</name></author><category term="面试" /><summary type="html">Python基础 基础语法 a=a^b b=b^a a=a^b 修改不可变类型 TypeError print 调用 sys.stdout.write方法 小内存读取大文件： def get_lines(): l=[] with open('file.txt','rb') as f: data = f.readlines(60000) l.append(data) yield l 通过生成器，分多次读取，每次读取数量相对少的数据进行处理 要考虑的问题： 分批读入数据要记录每次读入数据的位置；分批每次读入数据的大小，太小会在读取操作上耗费过多时间。 read、readline、readlines的区别？ read:读取整个文件 readline:读取下一行，使用生成器方法 readlines:读取整个文件到一个迭代器供我们遍历（可指定行数） linux 这个函数接收文件夹的路径作为输入参数 返回该文件夹中文件的路径 以及其包含文件夹中文件的路径 def print_directory_contents(sPath): import os for sChild in os.listdir(sPath): sChildPath = os.path.join(sPath,sChild) if os.path.isdir(sChildPath): print_directory_contents(sChildPath) else: print(sChildPath) 常用的Python标准库： os time random pymysql threading multiprocessing queue 浅拷贝（shallow copy） 浅拷贝会创建新对象，其内容非原对象本身的引用，而是原对象内第一层对象的引用。 浅拷贝有三种形式： 切片操作: b=a[:] or b = [x for x in a] 工厂模式: b=list(a) copy: b=copy.copy(a) os模块常见方法 os.remove() os.rename() os.walk() os.chdir() os.mkdir/makedirs os.rmdir/removedirs os.listdir() os.getcwd() os.chmod() os.path.basename() os.path.dirname() os.path.join() os.path.split() os.path.getsize() os.path.exists() os.path.isabs() os.path.isdir() os.path.isfile() sys 常用方法 sys.argv sys.modules.keys() sys.exc_info() sys.exit(n) sys.version sys.maxint sys.maxunicode sys.modules sys.path sys.platform sys.stdout sys.stdin sys.stderr sys.exc_clear sys.exec_prefix sys.byteorder sys.copyright sys.api_version sys.version_info Python 是强语言类型还是弱语言类型？ Python 是强类型的动态脚本语言。 强类型：不允许不同类型相加。 动态：不使用显示数据类型声明，确定一个变量的类型是第一次给它赋值的时候。 脚本语言： 一般也是解释性语言，运行代码只需要一个解释器，不需要编译。</summary></entry><entry><title type="html">python中os/sys常用方法</title><link href="http://localhost:4000/python/2018/06/26/os%E5%92%8Csys/" rel="alternate" type="text/html" title="python中os/sys常用方法" /><published>2018-06-26T03:25:39+08:00</published><updated>2018-06-26T03:25:39+08:00</updated><id>http://localhost:4000/python/2018/06/26/os%E5%92%8Csys</id><content type="html" xml:base="http://localhost:4000/python/2018/06/26/os%E5%92%8Csys/">&lt;h2 id=&quot;sys模块提供了访问或操作与python解释器相关方法与对象&quot;&gt;sys模块提供了访问或操作与python解释器相关方法与对象。&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>WUJIAJING</name></author><category term="面试" /><summary type="html">Python基础 基础语法 a=a^b b=b^a a=a^b 修改不可变类型 TypeError print 调用 sys.stdout.write方法 小内存读取大文件： def get_lines(): l=[] with open('file.txt','rb') as f: data = f.readlines(60000) l.append(data) yield l 通过生成器，分多次读取，每次读取数量相对少的数据进行处理 要考虑的问题： 分批读入数据要记录每次读入数据的位置；分批每次读入数据的大小，太小会在读取操作上耗费过多时间。 read、readline、readlines的区别？ read:读取整个文件 readline:读取下一行，使用生成器方法 readlines:读取整个文件到一个迭代器供我们遍历（可指定行数） linux 这个函数接收文件夹的路径作为输入参数 返回该文件夹中文件的路径 以及其包含文件夹中文件的路径 def print_directory_contents(sPath): import os for sChild in os.listdir(sPath): sChildPath = os.path.join(sPath,sChild) if os.path.isdir(sChildPath): print_directory_contents(sChildPath) else: print(sChildPath) 常用的Python标准库： os time random pymysql threading multiprocessing queue 浅拷贝（shallow copy） 浅拷贝会创建新对象，其内容非原对象本身的引用，而是原对象内第一层对象的引用。 浅拷贝有三种形式： 切片操作: b=a[:] or b = [x for x in a] 工厂模式: b=list(a) copy: b=copy.copy(a) os模块常见方法 os.remove() os.rename() os.walk() os.chdir() os.mkdir/makedirs os.rmdir/removedirs os.listdir() os.getcwd() os.chmod() os.path.basename() os.path.dirname() os.path.join() os.path.split() os.path.getsize() os.path.exists() os.path.isabs() os.path.isdir() os.path.isfile() sys 常用方法 sys.argv sys.modules.keys() sys.exc_info() sys.exit(n) sys.version sys.maxint sys.maxunicode sys.modules sys.path sys.platform sys.stdout sys.stdin sys.stderr sys.exc_clear sys.exec_prefix sys.byteorder sys.copyright sys.api_version sys.version_info Python 是强语言类型还是弱语言类型？ Python 是强类型的动态脚本语言。 强类型：不允许不同类型相加。 动态：不使用显示数据类型声明，确定一个变量的类型是第一次给它赋值的时候。 脚本语言： 一般也是解释性语言，运行代码只需要一个解释器，不需要编译。</summary></entry><entry><title type="html">Python私有变量和私有方法总结</title><link href="http://localhost:4000/python/2018/07/03/Python%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/" rel="alternate" type="text/html" title="Python私有变量和私有方法总结" /><published>2018-07-03T00:16:00+08:00</published><updated>2018-07-03T00:16:00+08:00</updated><id>http://localhost:4000/python/2018/07/03/Python%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95</id><content type="html" xml:base="http://localhost:4000/python/2018/07/03/Python%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/">&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+类的私有变量和私有方法
+在Python中可以通过在属性变量名前加上双下划线定义属性为私有属性
+特殊变量命名
+
+1、 _xx 以单下划线开头的表示的是protected类型的变量。即保护类型只能允许其本身与子类进行访问。若内部变量标示，如： 当使用“from M import”时，不会将以一个下划线开头的对象引入 。
+
+2、 __xx 双下划线的表示的是私有类型的变量。只能允许这个类本身进行访问了，连子类也不可以用于命名一个类属性（类变量），调用时名字被改变（在类FooBar内部，__boo变成_FooBar__boo,如self._FooBar__boo）
+
+3、 __xx__定义的是特列方法。用户控制的命名空间内的变量或是属性，如init , __import__或是file 。只有当文档有说明时使用，不要自己定义这类变量。 （就是说这些是python内部定义的变量名）
+
+在这里强调说一下私有变量,python默认的成员函数和成员变量都是公开的,没有像其他类似语言的public,private等关键字修饰.但是可以在变量前面加上两个下划线&quot;_&quot;,这样的话函数或变量就变成私有的.这是python的私有变量轧压(这个翻译好拗口),英文是(private name mangling.) **情况就是当变量被标记为私有后,在变量的前端插入类名,再类名前添加一个下划线&quot;_&quot;,即形成了_ClassName__变量名.**
+
+Python内置类属性
+__dict__ : 类的属性（包含一个字典，由类的数据属性组成）
+__doc__ :类的文档字符串
+__module__: 类定义所在的模块（类的全名是'__main__.className'，如果类位于一个导入模块mymod中，那么className.__module__ 等于 mymod）
+__bases__ : 类的所有父类构成元素（包含了一个由所有父类组成的元组）
+&quot;&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;pub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'protected类型的变量'&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;__info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'私有类型的变量'&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;这是一个protected类型的方法&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__func2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'这是一个私有类型的方法'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# print(a.info)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 执行结果：&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# protected类型的变量&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 这是一个protected类型的方法&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# protected类型的变量和方法 在类的实例中可以获取和调用&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# # print(a.__info)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# # a.__func2()&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 执行结果：&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#   File &quot;D:/Python/class/class3.py&quot;, line 46, in &amp;lt;module&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#     print(a.__info)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# # AttributeError: pub instance has no attribute '__info'&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#     a.__func2()&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# AttributeError: pub instance has no attribute '__func2'&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 私有类型的变量和方法 在类的实例中获取和调用不到&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 获取私有类型的变量&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 执行结果：私有类型的变量&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 如果想要在实例中获取到类的私有类形变量可以通过在类中声明普通方法，返回私有类形变量的方式获取&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 执行结果：['__doc__', '__module__', '_func', '_name', '_pub__func2', '_pub__info', 'get']&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__dict__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 执行结果：{}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__doc__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 执行结果： None&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__module__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 执行结果：__main__&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__bases__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 执行结果:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#     print(a.__bases__)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# AttributeError: pub instance has no attribute '__bases__'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>WUJIAJING</name></author><summary type="html">&quot;&quot;&quot; 类的私有变量和私有方法 在Python中可以通过在属性变量名前加上双下划线定义属性为私有属性 特殊变量命名 1、 _xx 以单下划线开头的表示的是protected类型的变量。即保护类型只能允许其本身与子类进行访问。若内部变量标示，如： 当使用“from M import”时，不会将以一个下划线开头的对象引入 。 2、 __xx 双下划线的表示的是私有类型的变量。只能允许这个类本身进行访问了，连子类也不可以用于命名一个类属性（类变量），调用时名字被改变（在类FooBar内部，__boo变成_FooBar__boo,如self._FooBar__boo） 3、 __xx__定义的是特列方法。用户控制的命名空间内的变量或是属性，如init , __import__或是file 。只有当文档有说明时使用，不要自己定义这类变量。 （就是说这些是python内部定义的变量名） 在这里强调说一下私有变量,python默认的成员函数和成员变量都是公开的,没有像其他类似语言的public,private等关键字修饰.但是可以在变量前面加上两个下划线&quot;_&quot;,这样的话函数或变量就变成私有的.这是python的私有变量轧压(这个翻译好拗口),英文是(private name mangling.) **情况就是当变量被标记为私有后,在变量的前端插入类名,再类名前添加一个下划线&quot;_&quot;,即形成了_ClassName__变量名.** Python内置类属性 __dict__ : 类的属性（包含一个字典，由类的数据属性组成） __doc__ :类的文档字符串 __module__: 类定义所在的模块（类的全名是'__main__.className'，如果类位于一个导入模块mymod中，那么className.__module__ 等于 mymod） __bases__ : 类的所有父类构成元素（包含了一个由所有父类组成的元组） &quot;&quot;&quot; class pub(): _name = 'protected类型的变量' __info = '私有类型的变量' def _func(self): print(&quot;这是一个protected类型的方法&quot;) def __func2(self): print('这是一个私有类型的方法') def get(self): return(self.__info) a = pub() print(a._name) a._func() # print(a.info) # 执行结果： # protected类型的变量 # 这是一个protected类型的方法 # protected类型的变量和方法 在类的实例中可以获取和调用 # # print(a.__info) # # a.__func2() # 执行结果： # File &quot;D:/Python/class/class3.py&quot;, line 46, in &amp;lt;module&amp;gt; # print(a.__info) # # AttributeError: pub instance has no attribute '__info' # a.__func2() # AttributeError: pub instance has no attribute '__func2' # 私有类型的变量和方法 在类的实例中获取和调用不到 # 获取私有类型的变量 print(a.get()) # 执行结果：私有类型的变量 # 如果想要在实例中获取到类的私有类形变量可以通过在类中声明普通方法，返回私有类形变量的方式获取 print(dir(a)) # 执行结果：['__doc__', '__module__', '_func', '_name', '_pub__func2', '_pub__info', 'get'] print(a.__dict__) # 执行结果：{} print(a.__doc__) # 执行结果： None print(a.__module__) # 执行结果：__main__ print(a.__bases__) # 执行结果: # print(a.__bases__) # AttributeError: pub instance has no attribute '__bases__'</summary></entry><entry><title type="html">python中os/sys常用方法</title><link href="http://localhost:4000/python/2018/06/26/os%E5%92%8Csys/" rel="alternate" type="text/html" title="python中os/sys常用方法" /><published>2018-06-26T03:25:39+08:00</published><updated>2018-06-26T03:25:39+08:00</updated><id>http://localhost:4000/python/2018/06/26/os%E5%92%8Csys</id><content type="html" xml:base="http://localhost:4000/python/2018/06/26/os%E5%92%8Csys/">&lt;h2 id=&quot;sys模块提供了访问或操作与python解释器相关方法与对象&quot;&gt;sys模块提供了访问或操作与python解释器相关方法与对象。&lt;/h2&gt;
 
 &lt;h2 id=&quot;几个常用到的动态对象&quot;&gt;几个常用到的动态对象：&lt;/h2&gt;
 

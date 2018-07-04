@@ -83,7 +83,7 @@
 <link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="面试," />
+  <meta name="keywords" content="" />
 
 
 
@@ -109,17 +109,17 @@
 
 
 
-<meta name="description" content="os/sys">
-<meta name="keywords" content="面试">
+<meta name="description" content="类的私有变量和私有方法在Python中可以通过在属性变量名前加上双下划线定义...">
+<meta name="keywords" content="Jekyll, NexT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python中os/sys常用方法">
-<meta property="og:url" content="http://localhost:4000/python/2018/06/26/os%E5%92%8Csys/">
+<meta property="og:title" content="Python私有变量和私有方法总结">
+<meta property="og:url" content="http://localhost:4000/python/2018/07/03/Python%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/">
 <meta property="og:site_name" content="By WUJIAJING">
-<meta property="og:description" content="os/sys">
+<meta property="og:description" content="类的私有变量和私有方法在Python中可以通过在属性变量名前加上双下划线定义...">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中os/sys常用方法">
-<meta name="twitter:description" content="os/sys">
+<meta name="twitter:title" content="Python私有变量和私有方法总结">
+<meta name="twitter:description" content="类的私有变量和私有方法在Python中可以通过在属性变量名前加上双下划线定义...">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -152,7 +152,7 @@
 
 
 
-  <title>python中os/sys常用方法 | By WUJIAJING</title>
+  <title>Python私有变量和私有方法总结 | By WUJIAJING</title>
   
 
 
@@ -290,7 +290,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/python/2018/06/26/os%E5%92%8Csys/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/python/2018/07/03/Python%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WUJIAJING">
@@ -310,7 +310,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            python中os/sys常用方法
+            Python私有变量和私有方法总结
           
         </h1>
         
@@ -324,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T03:25:39+08:00">
-                2018-06-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-03T00:16:00+08:00">
+                2018-07-03
               </time>
             
 
@@ -373,7 +373,7 @@
           
             
                 <div class="post-description">
-                    os/sys
+                    类的私有变量和私有方法在Python中可以通过在属性变量名前加上双下划线定义...
                 </div>
             
           
@@ -402,98 +402,79 @@
 
 
 
-  <h2 id="sys模块提供了访问或操作与python解释器相关方法与对象">sys模块提供了访问或操作与python解释器相关方法与对象。</h2>
+  <div class="language-python highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28<br/>29<br/>30<br/>31<br/>32<br/>33<br/>34<br/>35<br/>36<br/>37<br/>38<br/>39<br/>40<br/>41<br/>42<br/>43<br/>44<br/>45<br/>46<br/>47<br/>48<br/>49<br/>50<br/>51<br/>52<br/>53<br/>54<br/>55<br/>56<br/>57<br/>58<br/>59<br/>60<br/>61<br/>62<br/>63<br/>64<br/>65<br/>66<br/>67<br/>68<br/>69<br/>70</pre></td><td class="code"><pre class="highlight"><code><span class="s">"""
+类的私有变量和私有方法
+在Python中可以通过在属性变量名前加上双下划线定义属性为私有属性
+特殊变量命名
 
-<h2 id="几个常用到的动态对象">几个常用到的动态对象：</h2>
+1、 _xx 以单下划线开头的表示的是protected类型的变量。即保护类型只能允许其本身与子类进行访问。若内部变量标示，如： 当使用“from M import”时，不会将以一个下划线开头的对象引入 。
 
-<p>sys.argv,这是一个列表，它包含了所有传递给脚本的命令行参数，其中第一个为脚本自身的名称；</p>
+2、 __xx 双下划线的表示的是私有类型的变量。只能允许这个类本身进行访问了，连子类也不可以用于命名一个类属性（类变量），调用时名字被改变（在类FooBar内部，__boo变成_FooBar__boo,如self._FooBar__boo）
 
-<p>sys.path 这也是一个列表，里面放了模块的搜索路经。并且呢，path[0]表示当脚本的路经。</p>
+3、 __xx__定义的是特列方法。用户控制的命名空间内的变量或是属性，如init , __import__或是file 。只有当文档有说明时使用，不要自己定义这类变量。 （就是说这些是python内部定义的变量名）
 
-<p>sys.modules, 这是一个字典类型，它里面放了所有载入的模块。</p>
+在这里强调说一下私有变量,python默认的成员函数和成员变量都是公开的,没有像其他类似语言的public,private等关键字修饰.但是可以在变量前面加上两个下划线"_",这样的话函数或变量就变成私有的.这是python的私有变量轧压(这个翻译好拗口),英文是(private name mangling.) **情况就是当变量被标记为私有后,在变量的前端插入类名,再类名前添加一个下划线"_",即形成了_ClassName__变量名.**
 
-<p>sys.stdin , 标准输入流–一个类文件对象, raw_input()与input()这是使用它。</p>
+Python内置类属性
+__dict__ : 类的属性（包含一个字典，由类的数据属性组成）
+__doc__ :类的文档字符串
+__module__: 类定义所在的模块（类的全名是'__main__.className'，如果类位于一个导入模块mymod中，那么className.__module__ 等于 mymod）
+__bases__ : 类的所有父类构成元素（包含了一个由所有父类组成的元组）
+"""</span>
 
-<p>sys.stdout,标准输出流–一个类文件对象，我们使用print的时候，就是在使用它；</p>
+<span class="k">class</span> <span class="nc">pub</span><span class="p">():</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s">'protected类型的变量'</span>
+    <span class="n">__info</span> <span class="o">=</span> <span class="s">'私有类型的变量'</span>
+    <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"这是一个protected类型的方法"</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__func2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'这是一个私有类型的方法'</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__info</span><span class="p">)</span>
 
-<p>sys.stderr：标准错误流–一个类文件对象</p>
+<span class="n">a</span> <span class="o">=</span> <span class="n">pub</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">_func</span><span class="p">()</span>
+<span class="c"># print(a.info)</span>
+<span class="c"># 执行结果：</span>
+<span class="c"># protected类型的变量</span>
+<span class="c"># 这是一个protected类型的方法</span>
 
-<p>（以上三个流对象都可以重定向到其它 的IO设备的。）</p>
+<span class="c"># protected类型的变量和方法 在类的实例中可以获取和调用</span>
 
-<h2 id="几个常用的静态对象">几个常用的静态对象：</h2>
+<span class="c"># # print(a.__info)</span>
+<span class="c"># # a.__func2()</span>
+<span class="c"># 执行结果：</span>
+<span class="c">#   File "D:/Python/class/class3.py", line 46, in &lt;module&gt;</span>
+<span class="c">#     print(a.__info)</span>
+<span class="c"># # AttributeError: pub instance has no attribute '__info'</span>
+<span class="c">#     a.__func2()</span>
+<span class="c"># AttributeError: pub instance has no attribute '__func2'</span>
 
-<p>sys.builtin_module_names: 这是一个元组，里面放的是python解释器的内置的所有模块名称。</p>
+<span class="c"># 私有类型的变量和方法 在类的实例中获取和调用不到</span>
 
-<p>sys.version ,存放了python解释器的版本信息。</p>
+<span class="c"># 获取私有类型的变量</span>
 
-<p>sys.platform , 存放的是python解释器的平台，返回linux2或windows</p>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+<span class="c"># 执行结果：私有类型的变量</span>
+<span class="c"># 如果想要在实例中获取到类的私有类形变量可以通过在类中声明普通方法，返回私有类形变量的方式获取</span>
 
-<h2 id="常用到的函数">常用到的函数：</h2>
 
-<p>exit([status])，退出，默认为0，表示正常退出。</p>
-
-<p>对于os模块来说，首说一个通过os来调用的模块:os.path，它存在于os模块中，本身又是一个模块。os.path只是一个别名而已，对于不同的平台，这个模块可能有不同的名字。如，posix式的系统（如unix,linux)的话，它的别名就叫做os.path.对于Mac、windows等来说，可能名字叫做macpach, ntpath。</p>
-
-<h2 id="模块ospath下常见的函数">模块os.path下常见的函数：</h2>
-
-<p>abspath(path)：    Return an absolute path，返回绝对路经
-basename(p)：     Returns the final component of a pathname：返回路经的最后一部分，即 最后一个 / 后的内容；</p>
-
-<p>commonprefix(list)：    Given a list of pathnames, returns the longest common leading componen,它的输入为一个路经的列表，用于返回list中，所有path共有的最长的路径，从左向右，相同字符。</p>
-
-<p>dirname(p)：   Returns the directory component of a pathname，返回目录哦；</p>
-
-<p>exists(path)：    Test whether a path exists.  Returns False for broken symbolic links，测试一个目录是否存在；</p>
-
-<p>expanduser(path)：    Expand ~ and ~user constructions.  If user or $HOME is unknown,do nothing.作用就是把目录中的~展开；</p>
-
-<p>getatime(filename):  获得最后一次访问文件的时间，可以通过 os.stat()函数查看具体的状态；</p>
-
-<p>getctime(filename):   返回元数据最后一次change的时间；</p>
-
-<p>getmtime(filename):  返回最后一次修改的时间；</p>
-
-<p>isabs(s)：      测试一个路经是否是绝对路经；</p>
-
-<p>isdir(s) :        Return true if the pathname refers to an existing directory.</p>
-
-<p>isfile(path):    Test whether a path is a regular file</p>
-
-<p>join(path1[, path2[, …]])； 将多个路径组合后返回，第一个绝对路径之前的参数将被忽略normcase(path): 在Linux下，该函数会原样返回path，在windows平台上会将路径中所有字符转换为小写，并将所有斜杠转换 为反斜杠 splitdrive(path): 拆分驱动器名和路径，主要对win，对linux元组第一个总是空的 splitext(path): 分离文件名与扩展名；默认返回(fname,fextension)元组，可做分片操作 ，以“.”为分隔符 getsize(path): 返回path的大小（字节）</p>
-
-<p>在os模块中，相关的函数太多了，只说几个有用的，如果想具体看，可以通过 help(‘os’)查看哦；</p>
-
-<h2 id="一些与平台相关的一些常量平台一一样返回的值也不一样">一些与平台相关的一些常量，平台一一样，返回的值也不一样；</h2>
-<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10</pre></td><td class="code"><pre class="highlight"><code>     - os.name is 'posix', 'nt', 'os2', 'ce' or 'riscos' ，操作系统的名字；
-     - os.curdir is a string representing the current directory ('.' or ':') 当前目录的表示；
-     - os.pardir is a string representing the parent directory ('..' or '::') 父目录的表示；
-     - os.sep is the (or a most common) pathname separator ('/' or ':' or '\')目录名的分隔号；
-     - os.extsep is the extension separator ('.' or '/') 名字与扩展名之间的分隔号；
-     - os.altsep is the alternate pathname separator (None or '/') 
-     - os.pathsep is the component separator used in $PATH etc 目录之间的分隔号，linux下为：。
-     - os.linesep is the line separator in text files ('\r' or '\n' or '\r\n')一行的分隔号；
-     - os.defpath is the default search path for executables，执行程序时的默认路经；linux下通常为bash的路经
-     - os.devnull is the file path of the null device ('/dev/null', etc.) 空设备的文件路经；
+<span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="c"># 执行结果：['__doc__', '__module__', '_func', '_name', '_pub__func2', '_pub__info', 'get']</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span>
+<span class="c"># 执行结果：{}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">__doc__</span><span class="p">)</span>
+<span class="c"># 执行结果： None</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">__module__</span><span class="p">)</span>
+<span class="c"># 执行结果：__main__</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">__bases__</span><span class="p">)</span>
+<span class="c"># 执行结果:</span>
+<span class="c">#     print(a.__bases__)</span>
+<span class="c"># AttributeError: pub instance has no attribute '__bases__'</span>
 </code></pre></td></tr></tbody></table></div>
 </div>
 
-<h2 id="一些常用函数">一些常用函数：</h2>
-<div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14</pre></td><td class="code"><pre class="highlight"><code>os.getcwd() 获取当前工作目录，即当前python脚本工作的目录路径 
-os.chdir("dirname") 改变当前脚本工作目录；相当于shell下cd
-os.pardir 获取当前目录的父目录字符串名：('..')
-os.makedirs('dirname1/dirname2') 可生成多层递归目录
-os.removedirs('dirname1') 若目录为空，则删除，并递归到上一级目录，如若也为空，则删除，依此类推
-os.mkdir('dirname') 生成单级目录；相当于shell中mkdir dirname
-os.rmdir('dirname') 删除单级空目录，若目录不为空则无法删除，报错；相当于shell中rmdir dirname
-os.listdir('dirname') 列出指定目录下的所有文件和子目录，包括隐藏文件，并以列表方式打印
-os.remove() 删除一个文件
-os.rename("oldname","newname") 重命名文件/目录
-os.stat('path/filename') 获取文件/目录信息
-os.symlink('path/filename','ln_filename') 创建符号链接，源需绝对路径
-os.utime() 修改时间属性
-os.system(command) 函数用来运行shell命令：
-</code></pre></td></tr></tbody></table></div>
-</div>
 
 
       
@@ -522,13 +503,6 @@ os.system(command) 函数用来运行shell命令：
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            
-            <a href="/tag/#/%E9%9D%A2%E8%AF%95" rel="tag"># 面试</a>
-          
-        </div>
-      
 
       
       
@@ -541,8 +515,8 @@ os.system(command) 函数用来运行shell命令：
         <div class="post-nav" id="post-nav-id">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/python/2018/07/03/Python%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F%E5%92%8C%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/" rel="next" title="Python私有变量和私有方法总结">
-                <i class="fa fa-chevron-left"></i> Python私有变量和私有方法总结
+              <a href="/python/2018/07/03/interview/" rel="next" title="Python总结">
+                <i class="fa fa-chevron-left"></i> Python总结
               </a>
             
           </div>
@@ -551,8 +525,8 @@ os.system(command) 函数用来运行shell命令：
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/python/2018/06/10/tickets/" rel="prev" title="火车票查询购票软件开发">
-                火车票查询购票软件开发 <i class="fa fa-chevron-right"></i>
+              <a href="/python/2018/06/26/os%E5%92%8Csys/" rel="prev" title="python中os/sys常用方法">
+                python中os/sys常用方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -609,17 +583,8 @@ os.system(command) 函数用来运行shell命令：
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/assets/images/avatar.gif"
@@ -683,34 +648,6 @@ os.system(command) 函数用来运行shell命令：
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-
-
-
-
-
-
-
-            
-              <div class="post-toc-content">
-    <ol class=nav>
-      <li class="nav-item nav-level-2"> <a class="nav-link" href="#sys模块提供了访问或操作与python解释器相关方法与对象"> <span class="nav-number">1</span> <span class="nav-text">sys模块提供了访问或操作与python解释器相关方法与对象。</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#几个常用到的动态对象"> <span class="nav-number">2</span> <span class="nav-text">几个常用到的动态对象：</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#几个常用的静态对象"> <span class="nav-number">3</span> <span class="nav-text">几个常用的静态对象：</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#常用到的函数"> <span class="nav-number">4</span> <span class="nav-text">常用到的函数：</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#模块ospath下常见的函数"> <span class="nav-number">5</span> <span class="nav-text">模块os.path下常见的函数：</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#一些与平台相关的一些常量平台一一样返回的值也不一样"> <span class="nav-number">6</span> <span class="nav-text">一些与平台相关的一些常量，平台一一样，返回的值也不一样；</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#一些常用函数"> <span class="nav-number">7</span> <span class="nav-text">一些常用函数：</span> </a> </li>
-    </ol>
-  </div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
