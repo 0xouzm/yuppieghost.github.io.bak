@@ -2,6 +2,70 @@
 <search>
   
     <entry>
+      <title>c语言实现真正多线程</title>
+      <url>/python/2018/07/13/c%E8%AF%AD%E8%A8%80%E8%A7%A3%E5%86%B3GIL/</url>
+      <content type="text">python中通过重写函数，实现多线程
+
+from ctypes import *
+from threading import Thread
+
+#加载动态库
+lib = cdll.LoadLibrary(&quot;./libdead_loop.so&quot;)
+
+#创建一个子线程，让其执行ｃ语言编写的函数，此函数是一个死循环
+t = Thread(target=lib.DeadLoop)
+t.start()
+
+#主线程，也调用ｃ语言编写的那个死循环函数
+lib.DeadLoop()
+
+
+
+
+把一个ｃ语言文件编译成一个动态库的命令（linux平台下）:
+gcc xxx.c -shared -o libxxxx.so
+
+e.g
+
+#include &quot;stdio.h&quot;
+
+int main()
+{
+
+    printf(&quot;hello world&quot;);
+
+    return 0;
+}
+
+
+
+
+void DeadLoop()
+{
+    while(1)
+    {
+        ;
+    }
+}   
+
+
+
+To be continued… :runner:
+</content>
+      <categories>
+        
+          <category> python </category>
+        
+      </categories>
+      <tags>
+        
+          <tag> gil </tag>
+        
+      </tags>
+      <tags></tags>
+    </entry>
+  
+    <entry>
       <title>Linux下的tar压缩解压缩命令详解</title>
       <url>/python/2018/07/04/tar/</url>
       <content type="text">tar
