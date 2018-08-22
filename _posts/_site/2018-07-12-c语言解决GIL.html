@@ -1,0 +1,47 @@
+<p>python中通过重写函数，实现多线程</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+
+<span class="c">#加载动态库</span>
+<span class="n">lib</span> <span class="o">=</span> <span class="n">cdll</span><span class="o">.</span><span class="n">LoadLibrary</span><span class="p">(</span><span class="s">"./libdead_loop.so"</span><span class="p">)</span>
+
+<span class="c">#创建一个子线程，让其执行ｃ语言编写的函数，此函数是一个死循环</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">lib</span><span class="o">.</span><span class="n">DeadLoop</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c">#主线程，也调用ｃ语言编写的那个死循环函数</span>
+<span class="n">lib</span><span class="o">.</span><span class="n">DeadLoop</span><span class="p">()</span>
+
+</code></pre>
+</div>
+
+<p>把一个ｃ语言文件编译成一个动态库的命令（linux平台下）:
+<code class="highlighter-rouge">gcc xxx.c -shared -o libxxxx.so</code></p>
+
+<p>e.g</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include "stdio.h"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">DeadLoop</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>   
+</code></pre>
+</div>
+
+<p>To be continued… :runner:</p>
