@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------
 
 # Site
-title: Jiajing's blog
+title: jiajing's Blog
 subtitle:
 description: "Because it is there."
 author: 巫家竞的独立博客
@@ -19,7 +19,7 @@ baseurl:
 permalink: pretty
 
 # Pagination
-paginate: 10
+paginate: 8
 #paginate_path: "/page:num/"
 #archive:
   #paginate: 10
