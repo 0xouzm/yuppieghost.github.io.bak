@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="中期项目">
+<meta name="keywords" content="Jekyll, NexT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="火车票查询购票软件开发">
+<meta property="og:url" content="http://localhost:4000/python/2018/06/10/tickets/">
+<meta property="og:site_name" content="By WUJIAJING">
+<meta property="og:description" content="中期项目">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="火车票查询购票软件开发">
+<meta name="twitter:description" content="中期项目">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/">
+
+
+
+
+
+  <title>火车票查询购票软件开发 | By WUJIAJING</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">By WUJIAJING</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/python/2018/06/10/tickets/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WUJIAJING">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="By WUJIAJING">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            火车票查询购票软件开发
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-10T08:14:39+08:00">
+                2018-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/python" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+                <div class="post-description">
+                    中期项目
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="6月13日">6月13日</h2>
+<h4 id="列车信息模块">列车信息模块</h4>
+<ul>
+  <li>对车站名称、车站编号进行获取</li>
+</ul>
+
+<p>通过分析12306查询响应找到jquery地址，构造正则表达式进行匹配获得字典</p>
+
+<div class="language-python highlighter-rouge">
+<div class="highlight"><table style="margin: 0px"><tbody><tr>
+<td class="gutter"><pre>1<br>2<br>3<br>4</pre></td>
+<td class="code"><pre class="highlight"><code><span class="n">url</span> <span class="o">=</span> <span class="s">'https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9055'</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">patter</span> <span class="o">=</span> <span class="s">u'([</span><span class="se">\u4e00</span><span class="s">-</span><span class="se">\u9fa5</span><span class="s">]+)</span><span class="err">\</span><span class="s">|([A-Z]+)'</span> 	<span class="c">#unicode格式编码</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">patter</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+</code></pre></td>
+</tr></tbody></table></div>
+</div>
+
+<p>对字典键值对进行拆分获得车站名称和车站简写两个列表，构造函数方便互相取值</p>
+
+<ul>
+  <li>对得到的列车信息进行提取</li>
+</ul>
+
+<div class="language-python highlighter-rouge">
+<div class="highlight"><table style="margin: 0px"><tbody><tr>
+<td class="gutter"><pre>1</pre></td>
+<td class="code"><pre class="highlight"><code><span class="n">trains</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s">'data'</span><span class="p">][</span><span class="s">'result'</span><span class="p">]</span>
+</code></pre></td>
+</tr></tbody></table></div>
+</div>
+
+<p>构造好请求地址后返回json对象，通过上面的格式获取raw_trains</p>
+
+<p>将参数、raw_trains 传入TrainCollection类里，进行下一步提取</p>
+
+<p>将得到的raw_trains用split(‘|‘)分割，得到列车信息列表，对比12306的js文件得到需要的信息</p>
+
+<p>如果满足参数要求，构造生成器，返回parse_train_data函数处理好后的列车信息</p>
+
+<p>得到列车信息列表，返回给tkinter输出</p>
+
+<h4 id="车票价格模块">车票价格模块</h4>
+
+<p>同样分析12306网站响应，发现票价查询有两个页面，一个是单独查询所有票价，需要输入验证码，另外一个是在列车信息界面点击通过ajax请求获得点击的这行列车各个坐席的价格，验证码放到登录界面攻破，所以选择第二种方式，构造jquery请求网址，导入threading 模块，一次性获得查询趟次所有列车价格。</p>
+
+<p>难点在于构造请求网址，同样通过分析js文件后获得列表对应的编号，主要是每趟列车的始发站和到达站格式为int形式，不同于初始请求的车站缩写。</p>
+
+<h2 id="6月14日">6月14日</h2>
+
+<h4 id="解决价格获取问题">解决价格获取问题</h4>
+
+<p>​	昨天的价格获取实现不太友好，只是在终端输出。考虑到需要gui接收，必须封装成列表返回。本来以为是个小功能，结果发现并不简单。</p>
+
+<p>​	利用for循环创建多线程获取到每列车次的价格后需要添加到类属性列表中，首先排除掉join方法，因为GIL的问题，当车次过多时严重超时，等待时间过长，考虑lock互斥锁。为了能一次性返回整合好的价格列表和车次余票信息（两个列表），必须让主进程等待价格列表获取完全，引入self.train_num初始化为0，查询一次+1，循环判断当数量等于用户查询的车次类型的数量时，获取成功，return两个列表。</p>
+
+<div class="language-python highlighter-rouge">
+<div class="highlight"><table style="margin: 0px"><tbody><tr>
+<td class="gutter"><pre>1<br>2<br>3<br>4</pre></td>
+<td class="code"><pre class="highlight"><code><span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prices</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_num</span><span class="p">:</span>
+    	<span class="k">print</span><span class="p">(</span><span class="s">'查询趟次:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prices</span><span class="p">))</span>
+    	<span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">prices</span>
+</code></pre></td>
+</tr></tbody></table></div>
+</div>
+
+<p>综合对比过后，这是时间最短的一种方法，但当车次过多时等待时长还是较多。考虑tkinter实现多进程接收数据，让主菜单不至于卡死。</p>
+
+<p>在开发到票价查询时，因为多次请求api，发现12306做了反爬机制会返回403错误，所以要完善查询功能还待进一步学习代理技术。</p>
+
+<h2 id="6月20日">6月20日</h2>
+<h4 id="近期总结">近期总结</h4>
+
+<p>端午节过完了，后台程序也写得差不多了，写一下遇到的坑</p>
+
+<p>排除了上次写的一次获取所有价格方案，（虽然多线程那里搞出来的时候还挺开心的，但是全部扔掉）决定在界面中实现用户点击单次列车进行价格查询，性能更高，程序更稳定。</p>
+
+<h4 id="登录模块">登录模块</h4>
+
+<ul>
+  <li>
+    <p>验证码</p>
+
+    <p>由于12306验证码过于变态，涉及到机器学习进行图片验证，所以直接请求验证码接口进行用户本地验证</p>
+
+    <p>创建8个本地列表坐标，获取用户选择的图片后将构造好的坐标与用户名密码一起发送给登录接口</p>
+  </li>
+  <li>
+    <p>登录验证</p>
+
+    <p>用fiddler抓包，居然有f12获取不到的数据，发现12306对用户名密码有两次验证，</p>
+
+    <p>用第一次请求<code class="highlighter-rouge">https://kyfw.12306.cn/passport/web/auth/uamtk</code>得到的apptk发送给<code class="highlighter-rouge">https://kyfw.12306.cn/otn/uamauthclient</code>,登录验证成功</p>
+  </li>
+</ul>
+
+<h4 id="订票购票模块">订票购票模块</h4>
+
+<ul>
+  <li>
+    <p>订票功能</p>
+
+    <p>登录查票之后点击预订按钮进行抓包分析，发现需要构造一个带sec字符串的json对象，这个sec串是在查询界面请求到的列车信息里的下标为0的元素，为了实现预订请求，把查询列车信息模块进行调整，传给界面的时候将整个分割后的data_list作为参数传递，方便订票时获取对应信息。</p>
+
+    <p>这里还需要当日的日期，格式按照0000-00-00，所以用到了time模块下的strftime,localtime对time.time()进行格式化</p>
+  </li>
+  <li>
+    <p>获取余票信息</p>
+
+    <p>这一块考察对页面获取到的信息进行筛选能力，多处用到正则，</p>
+
+    <p>其中余票数量让我最纠结，最后通过下列代码成功得到需要的数据</p>
+
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><table style="margin: 0px"><tbody><tr>
+<td class="gutter"><pre>1</pre></td>
+<td class="code"><pre class="highlight"><code><span class="n">ticket_num</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r"</span><span class="err">\</span><span class="s">w+num</span><span class="err">\</span><span class="s">':</span><span class="err">\</span><span class="s">'[1-9]</span><span class="err">\</span><span class="s">d*</span><span class="err">\</span><span class="s">'"</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+</code></pre></td>
+</tr></tbody></table></div>
+    </div>
+
+    <p>正则真的是，神器</p>
+  </li>
+  <li>
+    <p>剩下的就是依次请求接口获取下个接口需要的数据，也没什么好写的</p>
+  </li>
+</ul>
+
+<p>查询界面出来之后软件感觉瞬间成型了一半，这几天还有一点让我学习的是如何协调后台程序的参数和gui界面的显示，我把原来的函数封装了几个类，另外写了一个主函数用来对各个界面以及后台功能函数的互相调用，这样运行逻辑更清晰。</p>
+
+<p>剩下的就是和界面加入主函数后互相进行调试。。。</p>
+
+<p>To be continued… <img class="emoji" title=":runner:" alt=":runner:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3c3.png" height="20" width="20" align="absmiddle"></p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/python/2018/06/26/os%E5%92%8Csys/" rel="next" title="python中os/sys常用方法">
+                <i class="fa fa-chevron-left"></i> python中os/sys常用方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/python/2018/06/07/fluntpython-note/" rel="prev" title="fluent python笔记">
+                fluent python笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/assets/images/avatar.gif" alt="WUJIAJING">
+          <p class="site-author-name" itemprop="name">WUJIAJING</p>
+           
+              <p class="site-description motion-element" itemprop="description">Because it is there.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class="nav">
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#6%E6%9C%8813%E6%97%A5"> <span class="nav-number">1</span> <span class="nav-text">6月13日</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E5%88%97%E8%BD%A6%E4%BF%A1%E6%81%AF%E6%A8%A1%E5%9D%97"> <span class="nav-number">1.1</span> <span class="nav-text">列车信息模块</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E8%BD%A6%E7%A5%A8%E4%BB%B7%E6%A0%BC%E6%A8%A1%E5%9D%97"> <span class="nav-number">1.2</span> <span class="nav-text">车票价格模块</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#6%E6%9C%8814%E6%97%A5"> <span class="nav-number">2</span> <span class="nav-text">6月14日</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%BB%B7%E6%A0%BC%E8%8E%B7%E5%8F%96%E9%97%AE%E9%A2%98"> <span class="nav-number">2.1</span> <span class="nav-text">解决价格获取问题</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#6%E6%9C%8820%E6%97%A5"> <span class="nav-number">3</span> <span class="nav-text">6月20日</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E8%BF%91%E6%9C%9F%E6%80%BB%E7%BB%93"> <span class="nav-number">3.1</span> <span class="nav-text">近期总结</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E7%99%BB%E5%BD%95%E6%A8%A1%E5%9D%97"> <span class="nav-number">3.2</span> <span class="nav-text">登录模块</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#%E8%AE%A2%E7%A5%A8%E8%B4%AD%E7%A5%A8%E6%A8%A1%E5%9D%97"> <span class="nav-number">3.3</span> <span class="nav-text">订票购票模块</span> </a> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  
+  © 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WUJIAJING</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://jekyllrb.com">Jekyll</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
