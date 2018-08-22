@@ -7,7 +7,7 @@
 title: By WUJIAJING
 subtitle:
 description: "Because it is there."
-author: Emc2
+author: WUJIAJING
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
@@ -353,7 +353,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night
+highlight_theme: night bright
 
 
 # ---------------------------------------------------------------
@@ -542,7 +542,7 @@ calendar:
   orderBy: startTime
   offsetMax: 24
   offsetMin: 4
-  timeZone:
+  timezone: America/New_York
   showDeleted: false
   singleEvents: true
   maxResults: 250
@@ -711,3 +711,5 @@ images: assets/images
 # Theme version
 version: 5.1.1
 exclude: [vendor]
+
+canvas_nest: true
